@@ -14,4 +14,17 @@
         </Columns>
 </asp:GridView>
 
-</asp:Content>
+    <asp:Calendar ID="calendarPlanner" runat="server"></asp:Calendar>
+    <asp:DropDownList ID="dropDownStudents" runat="server" DataSourceID="SqlDataSource1" DataTextField="studentNaam" DataValueField="studentId"></asp:DropDownList>
+    <asp:DropDownList ID="dropDownTimes" runat="server">
+        <asp:ListItem>9:00</asp:ListItem>
+        <asp:ListItem>10:00</asp:ListItem>
+        <asp:ListItem>11:00</asp:ListItem>
+        <asp:ListItem>12:00</asp:ListItem>
+        <asp:ListItem>13:00</asp:ListItem>
+        <asp:ListItem>14:00</asp:ListItem>
+        <asp:ListItem>15:00</asp:ListItem>
+        <asp:ListItem>16:00</asp:ListItem>
+        <asp:ListItem>17:00</asp:ListItem>
+    </asp:DropDownList><asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString %>" SelectCommand="SELECT * FROM [Studenten]"></asp:SqlDataSource>
+    <asp:Button ID="buttonAddToPlanner" runat="server" Text="Add reservation" OnClick="buttonAddToPlanner_Click" /></asp:Content>

@@ -45,5 +45,20 @@ namespace b2c2casusb2d22.Classes
 
             return dt;
         }
+
+        public void addPlanning(LokaalPlanner newPlanner)
+        {
+            SqlConnection con = databaseConnect();
+            SqlCommand cmd = new SqlCommand("insert into LokaalPlanner(lokaalId,datum,tijdstip,studentId) values (@lokaalId," +
+                "@datum,@tijdstip,@studentId)", con);
+
+            cmd.Parameters.AddWithValue("@lokaalId", newPlanner.getLokaal());
+            cmd.Parameters.AddWithValue("@datum", newPlanner.getDate());
+            cmd.Parameters.AddWithValue("@tijdstip", newPlanner.getTijdstip());
+            cmd.Parameters.AddWithValue("@studentId", newPlanner.getStudent());
+
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
     }
 }

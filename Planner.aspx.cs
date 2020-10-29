@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -27,6 +28,18 @@ namespace b2c2casusb2d22
 
             gridViewPlanner.DataSource = dt;
             gridViewPlanner.DataBind();
+        }
+
+        protected void buttonAddToPlanner_Click(object sender, EventArgs e)
+        {
+            int lokaalId = Convert.ToInt32(dropDownLokaal.SelectedValue);
+            int studentId = Convert.ToInt32(dropDownStudents.SelectedValue);
+            string date = calendarPlanner.SelectedDate.ToString();
+            string time = dropDownTimes.SelectedValue;
+
+            LokaalPlanner newPlanning = new LokaalPlanner(0, lokaalId, date, time, studentId);
+
+            dal.addPlanning(newPlanning);
         }
     }
 }
