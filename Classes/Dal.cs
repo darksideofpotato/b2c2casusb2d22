@@ -57,6 +57,11 @@ namespace b2c2casusb2d22.Classes
             cmd.Parameters.AddWithValue("@tijdstip", newPlanner.getTijdstip());
             cmd.Parameters.AddWithValue("@studentId", newPlanner.getStudent());
 
+            System.Diagnostics.Debug.WriteLine(newPlanner.getLokaal());
+            System.Diagnostics.Debug.WriteLine(newPlanner.getDate());
+            System.Diagnostics.Debug.WriteLine(newPlanner.getTijdstip());
+            System.Diagnostics.Debug.WriteLine(newPlanner.getStudent());
+
             cmd.ExecuteNonQuery();
             con.Close();
         }

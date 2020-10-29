@@ -32,14 +32,21 @@ namespace b2c2casusb2d22
 
         protected void buttonAddToPlanner_Click(object sender, EventArgs e)
         {
+                
+           
             int lokaalId = Convert.ToInt32(dropDownLokaal.SelectedValue);
             int studentId = Convert.ToInt32(dropDownStudents.SelectedValue);
-            string date = calendarPlanner.SelectedDate.ToString();
-            string time = dropDownTimes.SelectedValue;
+            string date = calendarPlanner.SelectedDate.ToString("dd/MM/yyyy");
+            string time = dropDownTimes.SelectedValue.ToString();
 
             LokaalPlanner newPlanning = new LokaalPlanner(0, lokaalId, date, time, studentId);
 
             dal.addPlanning(newPlanning);
+        }
+
+        protected void calendarPlanner_SelectionChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

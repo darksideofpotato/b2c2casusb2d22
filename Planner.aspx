@@ -14,7 +14,7 @@
         </Columns>
 </asp:GridView>
 
-    <asp:Calendar ID="calendarPlanner" runat="server"></asp:Calendar>
+    <asp:Calendar ID="calendarPlanner" runat="server" OnSelectionChanged="calendarPlanner_SelectionChanged"></asp:Calendar>
     <asp:DropDownList ID="dropDownStudents" runat="server" DataSourceID="SqlDataSource1" DataTextField="studentNaam" DataValueField="studentId"></asp:DropDownList>
     <asp:DropDownList ID="dropDownTimes" runat="server">
         <asp:ListItem>9:00</asp:ListItem>
