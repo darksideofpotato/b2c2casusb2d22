@@ -120,6 +120,15 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Classes\Dal.cs" />
+    <Compile Include="Classes\Expertise.cs" />
+    <Compile Include="Classes\Interesse.cs" />
+    <Compile Include="Classes\Klas.cs" />
+    <Compile Include="Classes\Lokaal.cs" />
+    <Compile Include="Classes\LokaalPlanner.cs" />
+    <Compile Include="Classes\Social.cs" />
+    <Compile Include="Classes\Student.cs" />
+    <Compile Include="Classes\Vak.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
