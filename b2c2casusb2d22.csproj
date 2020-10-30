@@ -130,6 +130,20 @@
     <Compile Include="Classes\Student.cs" />
     <Compile Include="Classes\Vak.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="CRUD classrooms.aspx.cs">
+      <DependentUpon>CRUD classrooms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CRUD classrooms.aspx.designer.cs">
+      <DependentUpon>CRUD classrooms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CRUD students.aspx.cs">
+      <DependentUpon>CRUD students.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CRUD students.aspx.designer.cs">
+      <DependentUpon>CRUD students.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -154,6 +168,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="CRUD classrooms.aspx" />
+    <Content Include="CRUD students.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
