@@ -24,6 +24,10 @@ namespace b2c2casusb2d22
             DataTable dt = dal.fillDataGridPlanner();
             gridViewPlanner.DataSource = dt;
             gridViewPlanner.DataBind();
+
+            //Dit label wordt gebruikt om het ID van een gekozen row even vast te houden. De gebruiker
+            // hoeft deze niet te zien dus staat hij op invisible. 
+            labelId.Visible = false;
         }
 
         protected void dropDownLokaal_SelectedIndexChanged(object sender, EventArgs e)
@@ -37,20 +41,30 @@ namespace b2c2casusb2d22
         }
 
         protected void buttonAddToPlanner_Click(object sender, EventArgs e)
-        {           
-           // Het toevoegen van een afspraak op basis van de ingevulde waardes (lokaal, datum in kalender, tijd en student)
-            int lokaalId = Convert.ToInt32(dropDownLokaal.SelectedValue);
-            int studentId = Convert.ToInt32(dropDownStudents.SelectedValue);
-            string date = calendarPlanner.SelectedDate.ToString("dd/MM/yyyy");
-            string time = dropDownTimes.SelectedValue.ToString();
+        {
+            // Het toevoegen van een afspraak op basis van de ingevulde waardes (lokaal, datum in kalender, tijd en student)
+            lblError.Text = "";
 
-            LokaalPlanner newPlanning = new LokaalPlanner(0, lokaalId, date, time, studentId);
+            try
+            {
+                int lokaalId = Convert.ToInt32(dropDownSelectClassroom.SelectedValue);
+                int studentId = Convert.ToInt32(dropDownStudents.SelectedValue);
+                string date = calendarPlanner.SelectedDate.ToString("dd/MM/yyyy");
+                string time = dropDownTimes.SelectedValue.ToString();
 
-            dal.addPlanning(newPlanning);
+                LokaalPlanner newPlanning = new LokaalPlanner(0, lokaalId, date, time, studentId);
+
+                dal.addPlanning(newPlanning);
+            }
+            catch (Exception error)
+            {
+                lblError.Text = "Something went wrong, please check your inserted values";
+            };
         }
 
         protected void gridViewPlanner_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            lblError.Text = "";
             // Wanneer de edit knop in de rij wordt ingedrukt, dan veranderen alle waardes op het scherm naar die van de gekozen afspraak.
             // zo kan eenvoudig een update functie worden uitgevoerd.
             if (e.CommandName == "editAppointment")
@@ -60,7 +74,7 @@ namespace b2c2casusb2d22
                 LokaalPlanner currentValues = dal.getAppointment(Convert.ToInt32(selectedRow.Cells[0].Text));
 
                 labelId.Text = currentValues.getId().ToString();
-                dropDownLokaal.SelectedIndex = currentValues.getLokaal() - 1;
+                dropDownSelectClassroom.SelectedIndex = currentValues.getLokaal() - 1;
                 calendarPlanner.SelectedDate = Convert.ToDateTime(currentValues.getDate());
                 dropDownTimes.SelectedValue = currentValues.getTijdstip();
                 dropDownStudents.SelectedIndex = currentValues.getStudent() - 1;
@@ -69,32 +83,42 @@ namespace b2c2casusb2d22
             // Wanneer de deleteknop wordt ingedrukt, wordt de gekozen row verwijderd uit de database.
             else if (e.CommandName == "deleteAfspraak")
             {
-                var rowIndex = int.Parse(e.CommandArgument.ToString());
-                var selectedRow = ((GridView)sender).Rows[rowIndex];
-                int id = Convert.ToInt32(selectedRow.Cells[0].Text);
+                try
+                {
+                    var rowIndex = int.Parse(e.CommandArgument.ToString());
+                    var selectedRow = ((GridView)sender).Rows[rowIndex];
+                    int id = Convert.ToInt32(selectedRow.Cells[0].Text);
 
-                dal.deleteAppointment(id);
+                    dal.deleteAppointment(id);
+                }
+                catch (Exception error)
+                {
+                    lblError.Text = "Something went wrong, please check your inserted values";
+                };
 
             }
         }
 
-        protected void calendarPlanner_SelectionChanged(object sender, EventArgs e)
-        {
-
-        }
-
         protected void buttonUpdateAppointment_Click(object sender, EventArgs e)
         {
-            LokaalPlanner currentValues = dal.getAppointment(Convert.ToInt32(labelId.Text));
+            lblError.Text = "";
+            try
+            {
+                LokaalPlanner currentValues = dal.getAppointment(Convert.ToInt32(labelId.Text));
 
-            currentValues.setStudent(Convert.ToInt32(dropDownStudents.SelectedIndex) + 1);
-            currentValues.setDate(calendarPlanner.SelectedDate.ToString());
-            currentValues.setTime(dropDownTimes.SelectedValue.ToString());
-            currentValues.setLokaal(Convert.ToInt32(dropDownLokaal.SelectedIndex) + 1);
+                currentValues.setStudent(Convert.ToInt32(dropDownStudents.SelectedIndex) + 1);
+                currentValues.setDate(calendarPlanner.SelectedDate.ToString());
+                currentValues.setTime(dropDownTimes.SelectedValue.ToString());
+                currentValues.setLokaal(Convert.ToInt32(dropDownSelectClassroom.SelectedIndex) + 1);
 
-            System.Diagnostics.Debug.WriteLine(dropDownLokaal.SelectedIndex);
 
-            dal.updateAppointment(currentValues);
+
+                dal.updateAppointment(currentValues);
+            }
+            catch(Exception error)
+            {
+                lblError.Text = "Something went wrong, please check your inserted values";
+            };
 
         }
     }

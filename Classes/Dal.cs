@@ -9,7 +9,10 @@ namespace b2c2casusb2d22.Classes
 {
     public class Dal
     {
+        // Een static variabele van de connectie, zodat hij in de functies niet zeurt dat hij niet bestaat
         static SqlConnection con;
+
+        // Het connecten met de database via de connectiestring. Even aanpassen naar je eigen connectiestring dus ;)
         public SqlConnection databaseConnect()
         {
             string connectionString = @"Data Source=JUDITH-PC;Initial Catalog=AfstandslerenDB;Integrated Security=True";
@@ -22,6 +25,7 @@ namespace b2c2casusb2d22.Classes
         }
 
 
+        // De datatable van alle afspraken in de viewplanner. Kan zo in de gridview worden gebind
         public DataTable fillDataGridPlanner()
         {
             SqlConnection con = databaseConnect();
@@ -34,18 +38,36 @@ namespace b2c2casusb2d22.Classes
 
         }
 
+        // Andere datatable op basis van het gekozen lokaal waar op gefilterd wordt.
+        // Wanneer de gebruiker kiest voor de optie 'All', dan wordt het id '0' meegegeven (een database record kan niet het id 0 hebben)
+        // dus zorgt hij ervoor dat wanneer dit id wordt meegegeven, alle afspraken weer weergeven worden
         public DataTable fillLokalenPlannerOnChange(int lokaalId)
         {
             SqlConnection con = databaseConnect();
-            SqlCommand cmd = new SqlCommand("Select * FROM ViewPlanner, Lokalen WHERE Lokalen.lokaalNaam = ViewPlanner.lokaalnaam AND lokaalId = @ID", con);
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.SelectCommand.Parameters.AddWithValue("@ID", lokaalId);
-            da.Fill(dt);
 
-            return dt;
+            if (lokaalId == 0)
+            {
+               SqlCommand cmd = new SqlCommand("Select * FROM ViewPlanner ", con);
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                return dt;
+            }
+            else 
+            { 
+                SqlCommand cmd = new SqlCommand("Select * FROM ViewPlanner, Lokalen WHERE Lokalen.lokaalNaam = ViewPlanner.lokaalnaam AND lokaalId = @ID", con);
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.SelectCommand.Parameters.AddWithValue("@ID", lokaalId);
+                da.Fill(dt);
+
+                return dt;
+            }
+                    
         }
 
+        // Het toevoegen van een nieuwe afspraak aan de database op basis van een object dat wordt meegegeven
         public void addPlanning(LokaalPlanner newPlanner)
         {
             SqlConnection con = databaseConnect();
