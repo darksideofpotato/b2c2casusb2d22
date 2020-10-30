@@ -15,6 +15,15 @@ namespace b2c2casusb2d22
     {
 
         /// <summary>
+        /// labelId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelId;
+
+        /// <summary>
         /// dropDownLokaal control.
         /// </summary>
         /// <remarks>
@@ -85,5 +94,14 @@ namespace b2c2casusb2d22
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button buttonAddToPlanner;
+
+        /// <summary>
+        /// buttonUpdateAppointment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button buttonUpdateAppointment;
     }
 }

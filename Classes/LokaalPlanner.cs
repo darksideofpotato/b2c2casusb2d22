@@ -23,6 +23,10 @@ namespace b2c2casusb2d22.Classes
             this.studentId = _studentId;
         }
 
+        public int getId()
+        {
+            return lokaalPlannerId;
+        }
         public int getLokaal()
         {
             return lokaalId;
@@ -39,5 +43,24 @@ namespace b2c2casusb2d22.Classes
         {
             return studentId;
         }
+
+        #region sets
+        public void setLokaal(int newLokaal)
+        {
+            this.lokaalId = newLokaal;
+        }
+        public void setDate(string newDate)
+        {
+            this.datum = newDate;
+        }
+        public void setTime(string newTime)
+        {
+            this.tijdstip = newTime;
+        }
+        public void setStudent(int newStudent)
+        {
+            this.studentId = newStudent;
+        }
+        #endregion
     }
 }
