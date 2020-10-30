@@ -94,7 +94,7 @@ namespace b2c2casusb2d22.Classes
         }
 
         //Update een afspraak op basis van het LokaalPlanner object dat is meegegeven
-        public void updateLokaalPlanner(LokaalPlanner appointment)
+        public void updateAppointment(LokaalPlanner appointment)
         {
             SqlConnection con = databaseConnect();
             SqlCommand cmd = new SqlCommand("UPDATE LokaalPlanner SET lokaalId = @lokaalId, datum = @datum, tijdstip = @tijdstip," +
@@ -108,6 +108,17 @@ namespace b2c2casusb2d22.Classes
 
             System.Diagnostics.Debug.WriteLine(appointment.getLokaal());
 
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+
+        //Verwijderd een afspraak op basis van het LokaalPlanner object dat is meegegeven
+        public void deleteAppointment(int Id)
+        {
+            SqlConnection con = databaseConnect();
+            SqlCommand cmd = new SqlCommand("DELETE FROM LokaalPlanner WHERE lokaalplannerId = @ID", con);
+
+            cmd.Parameters.AddWithValue("@ID", Id);
             cmd.ExecuteNonQuery();
             con.Close();
         }

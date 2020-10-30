@@ -69,11 +69,11 @@ namespace b2c2casusb2d22
             // Wanneer de deleteknop wordt ingedrukt, wordt de gekozen row verwijderd uit de database.
             else if (e.CommandName == "deleteAfspraak")
             {
-                //var rowIndex = int.Parse(e.CommandArgument.ToString());
-                //var selectedRow = ((GridView)sender).Rows[rowIndex];
-                //int id = Convert.ToInt32(selectedRow.Cells[0].Text);
+                var rowIndex = int.Parse(e.CommandArgument.ToString());
+                var selectedRow = ((GridView)sender).Rows[rowIndex];
+                int id = Convert.ToInt32(selectedRow.Cells[0].Text);
 
-                //dal.deleteAppointment(id);
+                dal.deleteAppointment(id);
 
             }
         }
@@ -94,7 +94,7 @@ namespace b2c2casusb2d22
 
             System.Diagnostics.Debug.WriteLine(dropDownLokaal.SelectedIndex);
 
-            dal.updateLokaalPlanner(currentValues);
+            dal.updateAppointment(currentValues);
 
         }
     }
