@@ -13,5 +13,37 @@ namespace b2c2casusb2d22
         {
 
         }
+
+        protected void GVstu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DDLchoice.SelectedValue == "1")
+            {
+                DVexpstu.Visible = true;
+                DVintstu.Visible = false;
+                DVsocialstu.Visible = false;
+                DVvakstu.Visible = false;
+            }
+            else if (DDLchoice.SelectedValue == "2")
+            {
+                DVexpstu.Visible = false;
+                DVintstu.Visible = true;
+                DVsocialstu.Visible = false;
+                DVvakstu.Visible = false;
+            }
+            else if (DDLchoice.SelectedValue == "3")
+            {
+                DVexpstu.Visible = false;
+                DVintstu.Visible = false;
+                DVsocialstu.Visible = true;
+                DVvakstu.Visible = false;
+            }
+            else if (DDLchoice.SelectedValue == "4")
+            {
+                DVexpstu.Visible = false;
+                DVintstu.Visible = false;
+                DVsocialstu.Visible = false;
+                DVvakstu.Visible = true;
+            }
+        }
     }
 }
