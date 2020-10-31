@@ -15,22 +15,67 @@ namespace b2c2casusb2d22
     {
 
         /// <summary>
-        /// DDLchoice control.
+        /// dllChoice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLchoice;
+        protected global::System.Web.UI.WebControls.DropDownList dllChoice;
 
         /// <summary>
-        /// GVstu control.
+        /// gvStudenten control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVstu;
+        protected global::System.Web.UI.WebControls.GridView gvStudenten;
+
+        /// <summary>
+        /// dvExpStudent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DetailsView dvExpStudent;
+
+        /// <summary>
+        /// dvIntStudent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DetailsView dvIntStudent;
+
+        /// <summary>
+        /// dvSocialStudent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DetailsView dvSocialStudent;
+
+        /// <summary>
+        /// dvVakStudent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DetailsView dvVakStudent;
+
+        /// <summary>
+        /// dvStudent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DetailsView dvStudent;
 
         /// <summary>
         /// SqlDataSource1 control.
@@ -42,15 +87,6 @@ namespace b2c2casusb2d22
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 
         /// <summary>
-        /// DVexpstu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DetailsView DVexpstu;
-
-        /// <summary>
         /// SqlDataSource2 control.
         /// </summary>
         /// <remarks>
@@ -58,15 +94,6 @@ namespace b2c2casusb2d22
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
-
-        /// <summary>
-        /// DVintstu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DetailsView DVintstu;
 
         /// <summary>
         /// SqlDataSource3 control.
@@ -78,15 +105,6 @@ namespace b2c2casusb2d22
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource3;
 
         /// <summary>
-        /// DVsocialstu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DetailsView DVsocialstu;
-
-        /// <summary>
         /// SqlDataSource4 control.
         /// </summary>
         /// <remarks>
@@ -96,15 +114,6 @@ namespace b2c2casusb2d22
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource4;
 
         /// <summary>
-        /// DVvakstu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DetailsView DVvakstu;
-
-        /// <summary>
         /// SqlDataSource5 control.
         /// </summary>
         /// <remarks>
@@ -112,6 +121,15 @@ namespace b2c2casusb2d22
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource5;
+
+        /// <summary>
+        /// SqlDataSource6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource6;
 
         /// <summary>
         /// SqlDataSourceStu control.
@@ -130,5 +148,41 @@ namespace b2c2casusb2d22
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceExp;
+
+        /// <summary>
+        /// SqlDataSourceInt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceInt;
+
+        /// <summary>
+        /// SqlDataSourceSoc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceSoc;
+
+        /// <summary>
+        /// SqlDataSourceVak control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceVak;
+
+        /// <summary>
+        /// SqlDataSourceKlas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceKlas;
     }
 }

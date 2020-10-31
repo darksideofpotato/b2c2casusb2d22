@@ -14,35 +14,47 @@ namespace b2c2casusb2d22
 
         }
 
-        protected void GVstu_SelectedIndexChanged(object sender, EventArgs e)
+        protected void gvStudenten_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (DDLchoice.SelectedValue == "1")
+            if (dllChoice.SelectedValue == "1")
             {
-                DVexpstu.Visible = true;
-                DVintstu.Visible = false;
-                DVsocialstu.Visible = false;
-                DVvakstu.Visible = false;
+                dvExpStudent.Visible = true;
+                dvIntStudent.Visible = false;
+                dvSocialStudent.Visible = false;
+                dvVakStudent.Visible = false;
+                dvStudent.Visible = false;
             }
-            else if (DDLchoice.SelectedValue == "2")
+            else if (dllChoice.SelectedValue == "2")
             {
-                DVexpstu.Visible = false;
-                DVintstu.Visible = true;
-                DVsocialstu.Visible = false;
-                DVvakstu.Visible = false;
+                dvExpStudent.Visible = false;
+                dvIntStudent.Visible = true;
+                dvSocialStudent.Visible = false;
+                dvVakStudent.Visible = false;
+                dvStudent.Visible = false;
             }
-            else if (DDLchoice.SelectedValue == "3")
+            else if (dllChoice.SelectedValue == "3")
             {
-                DVexpstu.Visible = false;
-                DVintstu.Visible = false;
-                DVsocialstu.Visible = true;
-                DVvakstu.Visible = false;
+                dvExpStudent.Visible = false;
+                dvIntStudent.Visible = false;
+                dvSocialStudent.Visible = true;
+                dvVakStudent.Visible = false;
+                dvStudent.Visible = false;
             }
-            else if (DDLchoice.SelectedValue == "4")
+            else if (dllChoice.SelectedValue == "4")
             {
-                DVexpstu.Visible = false;
-                DVintstu.Visible = false;
-                DVsocialstu.Visible = false;
-                DVvakstu.Visible = true;
+                dvExpStudent.Visible = false;
+                dvIntStudent.Visible = false;
+                dvSocialStudent.Visible = false;
+                dvVakStudent.Visible = true;
+                dvStudent.Visible = false;
+            }
+            else if (dllChoice.SelectedValue == "5")
+            {
+                dvExpStudent.Visible = false;
+                dvIntStudent.Visible = false;
+                dvSocialStudent.Visible = false;
+                dvVakStudent.Visible = false;
+                dvStudent.Visible = true;
             }
         }
     }
