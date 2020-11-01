@@ -1,7 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masterpage.Master" AutoEventWireup="true" CodeBehind="CRUD classrooms.aspx.cs" Inherits="b2c2casusb2d22.CRUD_classrooms" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+﻿<%@ Page Title="ClassroomCrud" Language="C#" MasterPageFile="~/Masterpage.Master" AutoEventWireup="true" CodeBehind="CRUD classrooms.aspx.cs" Inherits="b2c2casusb2d22.CRUD_classrooms" %>
+<asp:Content ID="ClassCrudContent" ContentPlaceHolderID="MainWindow" runat="server">
     <div class="main_CRUD_classrooms">
         <asp:GridView ID="GVclassroom" runat="server" AutoGenerateColumns="False" DataKeyNames="lokaalId" DataSourceID="SqlDataSource1">
             <Columns>

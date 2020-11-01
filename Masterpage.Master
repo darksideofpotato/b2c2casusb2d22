@@ -4,15 +4,25 @@
 
 <html>
 <head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
+    <title>ShareShack</title>
+    <link rel="stylesheet" href="CSS/StyleSheet.css" />
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+
+            <asp:Button ID="HomeBtn" runat="server" OnClick="HomeBtn_Click" Text="Home" />
+            <asp:Button ID="StudentCrBtn" runat="server" OnClick="StudentCrBtn_Click" Text="Manage Students" />
+            <asp:Button ID="ClassCrudBtn" runat="server" OnClick="ClassCrudBtn_Click" Text="Manage Classrooms" />
+            <asp:Button ID="PlannerBtn" runat="server" OnClick="PlannerBtn_Click" Text="Plan meeting" />
+
+        </div>
+        <div>
+        <asp:ContentPlaceHolder ID="MainWindow" runat="server">
+        </asp:ContentPlaceHolder>
+        </div>
+        <div>
+            <p>This was a school assignment made using Visual Studio ASP.NET in Web Forms</p>
         </div>
     </form>
 </body>
