@@ -144,5 +144,52 @@ namespace b2c2casusb2d22.Classes
             cmd.ExecuteNonQuery();
             con.Close();
         }
+
+        //Geeft het object student op basis van een gegeven ID
+        public Student getStudent(int Id)
+        {
+            SqlConnection con = databaseConnect();
+            string cmd = "Select * FROM Studenten WHERE studentId = @ID";
+
+            SqlDataAdapter ad = new SqlDataAdapter(cmd, con);
+            ad.SelectCommand.Parameters.AddWithValue("@ID", Id);
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+
+            List<string> objectList = new List<string>();
+
+            foreach (DataColumn col in dt.Columns)
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    objectList.Add(row[col.ColumnName].ToString());
+                    System.Diagnostics.Debug.WriteLine(row[col.ColumnName].ToString());
+                }
+            }             
+            Student pickedStudent = new Student(Convert.ToInt32(Convert.ToInt32(objectList[0])), objectList[1], objectList[2], Convert.ToInt32(objectList[3]));
+
+            return pickedStudent;
+        }
+
+        public string getKlasFromStudent(int studentId)
+        {
+            SqlConnection con = databaseConnect();
+            string cmd = "Select klasNaam FROM Klassen, Studenten WHERE Studenten.studentId = @ID";
+
+            SqlDataAdapter ad = new SqlDataAdapter(cmd, con);
+            ad.SelectCommand.Parameters.AddWithValue("@ID", studentId);
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+
+            foreach (DataRow row in dt.Rows)
+            {
+                string klasNaam = row["klasNaam"].ToString();
+                return klasNaam;
+            }
+
+            return "This student is not assigned to a class";
+
+           
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using b2c2casusb2d22.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,6 +10,7 @@ namespace b2c2casusb2d22
 {
     public partial class CRUD_students : System.Web.UI.Page
     {
+        Dal dal = new Dal();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -55,6 +57,20 @@ namespace b2c2casusb2d22
                 dvSocialStudent.Visible = false;
                 dvVakStudent.Visible = false;
                 dvStudent.Visible = true;
+            }
+        }
+
+        protected void gvStudenten_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            // Wanneer er op de 'profile' knop geklikt wordt, krijgt de gebruiker het profiel van de gekozen gebruiker te zien
+            if (e.CommandName == "checkProfile")
+            {
+                var rowIndex = int.Parse(e.CommandArgument.ToString());
+                var selectedRow = ((GridView)sender).Rows[rowIndex];
+                Student pickedStudent = dal.getStudent(Convert.ToInt32(selectedRow.Cells[0].Text));
+
+                Session["Student"] = pickedStudent;
+                Server.Transfer("Profile.aspx");
             }
         }
     }
