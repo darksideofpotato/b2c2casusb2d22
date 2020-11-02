@@ -19,6 +19,7 @@ namespace b2c2casusb2d22
             lblName1.Text = pickedStudent.getStudentNaam();
 
             lblClass.Text = dal.getKlasFromStudent(pickedStudent.getId());
+
            
         }
     }

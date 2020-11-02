@@ -185,6 +185,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="CRUD classrooms.aspx" />
     <Content Include="CRUD students.aspx" />
+    <Content Include="Images\default-user-image.png" />
     <Content Include="CSS\StyleSheet.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -325,7 +326,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

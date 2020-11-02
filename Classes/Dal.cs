@@ -171,6 +171,7 @@ namespace b2c2casusb2d22.Classes
             return pickedStudent;
         }
 
+        // Geeft de naam van een klas terug op basis van een studentnummer
         public string getKlasFromStudent(int studentId)
         {
             SqlConnection con = databaseConnect();
@@ -188,8 +189,7 @@ namespace b2c2casusb2d22.Classes
             }
 
             return "This student is not assigned to a class";
-
-           
         }
+
     }
 }
