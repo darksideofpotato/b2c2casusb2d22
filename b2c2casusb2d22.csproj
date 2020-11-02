@@ -191,6 +191,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Home.aspx" />
+    <Content Include="Images\Zuyd Logo.png" />
     <Content Include="Planner.aspx" />
     <Content Include="Masterpage.Master" />
     <Content Include="Profile.aspx" />

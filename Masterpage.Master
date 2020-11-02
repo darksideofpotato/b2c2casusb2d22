@@ -4,25 +4,30 @@
 
 <html>
 <head runat="server">
-    <title>ShareShack</title>
+    <title>WeConnect</title>
     <link rel="stylesheet" href="CSS/StyleSheet.css" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div class="title">
+            <h1>WeConnect</h1>
+        </div>
+        <div class="navbar">
 
-            <asp:Button ID="HomeBtn" runat="server" OnClick="HomeBtn_Click" Text="Home" />
-            <asp:Button ID="StudentCrBtn" runat="server" OnClick="StudentCrBtn_Click" Text="Manage Students" />
-            <asp:Button ID="ClassCrudBtn" runat="server" OnClick="ClassCrudBtn_Click" Text="Manage Classrooms" />
-            <asp:Button ID="PlannerBtn" runat="server" OnClick="PlannerBtn_Click" Text="Plan meeting" />
+            <asp:Button CssClass="navbtn" ID="HomeBtn" runat="server" OnClick="HomeBtn_Click" Text="Home" />
+            <asp:Button CssClass="navbtn" ID="StudentCrBtn" runat="server" OnClick="StudentCrBtn_Click" Text="Students" />
+            <asp:Button CssClass="navbtn" ID="ClassCrudBtn" runat="server" OnClick="ClassCrudBtn_Click" Text="Classrooms" />
+            <asp:Button CssClass="navbtn" ID="PlannerBtn" runat="server" OnClick="PlannerBtn_Click" Text="Planner" />
 
         </div>
-        <div>
+        <div class="contDiv">
         <asp:ContentPlaceHolder ID="MainWindow" runat="server">
         </asp:ContentPlaceHolder>
         </div>
-        <div>
+        <div class="btmDiv">
             <p>This was a school assignment made using Visual Studio ASP.NET in Web Forms</p>
+            <p>Created for the case project: "Afstandsleren en Communiceren"</p>
+            <p>Created by: Class B2D Group D</p>
         </div>
     </form>
 </body>

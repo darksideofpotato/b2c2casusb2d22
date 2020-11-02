@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="ClassroomCrud" Language="C#" MasterPageFile="~/Masterpage.Master" AutoEventWireup="true" CodeBehind="CRUD classrooms.aspx.cs" Inherits="b2c2casusb2d22.CRUD_classrooms" %>
 <asp:Content ID="ClassCrudContent" ContentPlaceHolderID="MainWindow" runat="server">
-    <div class="main_CRUD_classrooms">
+    <div id="ClassGrid">
         <asp:GridView ID="GVclassroom" runat="server" AutoGenerateColumns="False" DataKeyNames="lokaalId" DataSourceID="SqlDataSource1">
             <Columns>
                 <asp:BoundField DataField="lokaalId" HeaderText="lokaalId" InsertVisible="False" ReadOnly="True" SortExpression="lokaalId" />
@@ -9,7 +9,9 @@
                 <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Select" />
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString2 %>" SelectCommand="SELECT * FROM [Lokalen]"></asp:SqlDataSource>
+    </div>
+    <div id="ClassDetails">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString3 %>" SelectCommand="SELECT * FROM [Lokalen]"></asp:SqlDataSource>
         <asp:DetailsView ID="DVclassrooms" runat="server" AutoGenerateRows="False" DataKeyNames="lokaalId" DataSourceID="SqlDataSource2" Height="50px" Width="125px">
             <Fields>
                 <asp:BoundField DataField="lokaalId" HeaderText="lokaalId" InsertVisible="False" ReadOnly="True" SortExpression="lokaalId" />
@@ -18,7 +20,7 @@
                 <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowInsertButton="True" />
             </Fields>
         </asp:DetailsView>
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString2 %>" DeleteCommand="DELETE FROM [Lokalen] WHERE [lokaalId] = @lokaalId" InsertCommand="INSERT INTO [Lokalen] ([lokaalNaam], [lokaalCapaciteit]) VALUES (@lokaalNaam, @lokaalCapaciteit)" SelectCommand="SELECT * FROM [Lokalen] WHERE ([lokaalId] = @lokaalId)" UpdateCommand="UPDATE [Lokalen] SET [lokaalNaam] = @lokaalNaam, [lokaalCapaciteit] = @lokaalCapaciteit WHERE [lokaalId] = @lokaalId">
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString3 %>" DeleteCommand="DELETE FROM [Lokalen] WHERE [lokaalId] = @lokaalId" InsertCommand="INSERT INTO [Lokalen] ([lokaalNaam], [lokaalCapaciteit]) VALUES (@lokaalNaam, @lokaalCapaciteit)" SelectCommand="SELECT * FROM [Lokalen] WHERE ([lokaalId] = @lokaalId)" UpdateCommand="UPDATE [Lokalen] SET [lokaalNaam] = @lokaalNaam, [lokaalCapaciteit] = @lokaalCapaciteit WHERE [lokaalId] = @lokaalId">
             <DeleteParameters>
                 <asp:Parameter Name="lokaalId" Type="Int32" />
             </DeleteParameters>
