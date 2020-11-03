@@ -1,8 +1,11 @@
 ﻿<%@ Page Title="StudentCrud" Language="C#" MasterPageFile="~/Masterpage.Master" AutoEventWireup="true" CodeBehind="CRUD students.aspx.cs" Inherits="b2c2casusb2d22.CRUD_students" %>
 <asp:Content ID="StudCrudContent" ContentPlaceHolderID="MainWindow" runat="server">
     <div id="StudSelectGrid">
-
-        <asp:DropDownList ID="dllChoice" runat="server">
+        Sort by courses <asp:DropDownList ID="dropDownSort" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource7" DataTextField="vakNaam" DataValueField="vakId" OnSelectedIndexChanged="dropDownSort_SelectedIndexChanged"></asp:DropDownList>
+        <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString %>" SelectCommand="SELECT * FROM [Vakken]"></asp:SqlDataSource>
+        Sort bij class <asp:DropDownList ID="dropDownSort2" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource8" DataTextField="klasNaam" DataValueField="klasId" OnSelectedIndexChanged="dropDownSort2_SelectedIndexChanged"></asp:DropDownList>
+        <asp:SqlDataSource ID="SqlDataSource8" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString %>" SelectCommand="SELECT * FROM [Klassen]"></asp:SqlDataSource>
+        Edit:<asp:DropDownList ID="dllChoice" runat="server">
             <asp:ListItem Value="1">Expertises</asp:ListItem>
             <asp:ListItem Value="2">Interesses</asp:ListItem>
             <asp:ListItem Value="3">Socials</asp:ListItem>

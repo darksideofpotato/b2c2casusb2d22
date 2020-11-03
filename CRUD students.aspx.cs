@@ -1,6 +1,7 @@
 ﻿using b2c2casusb2d22.Classes;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -72,6 +73,26 @@ namespace b2c2casusb2d22
                 Session["Student"] = pickedStudent;
                 Server.Transfer("Profile.aspx");
             }
+        }
+
+        protected void dropDownSort_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int courseId = Convert.ToInt32(dropDownSort.SelectedValue);
+            DataTable dt = dal.fillStudentOnChange("course", courseId);
+
+            gvStudenten.DataSourceID = ""; 
+            gvStudenten.DataSource = dt;
+            gvStudenten.DataBind();
+        }
+
+        protected void dropDownSort2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int classId = Convert.ToInt32(dropDownSort2.SelectedValue);
+            DataTable dt = dal.fillStudentOnChange("class", classId);
+
+            gvStudenten.DataSourceID = "";
+            gvStudenten.DataSource = dt;
+            gvStudenten.DataBind();
         }
     }
 }

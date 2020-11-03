@@ -191,5 +191,30 @@ namespace b2c2casusb2d22.Classes
             return "This student is not assigned to a class";
         }
 
+
+        public DataTable fillStudentOnChange(string whatToChange, int Id)
+        {
+            SqlConnection con = databaseConnect();
+            DataTable dt = new DataTable();
+            if (whatToChange == "class") {
+                SqlCommand cmd = new SqlCommand("SELECT studentId, studentNaam, studentNummer, klasNaam FROM Studenten, Klassen WHERE Klassen.klasId = Studenten.klasId AND Studenten.klasId = @ID", con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.SelectCommand.Parameters.AddWithValue("@ID", Id);
+                da.Fill(dt);
+
+                return dt;
+            }
+            else if (whatToChange == "course")
+            {
+                SqlCommand cmd = new SqlCommand("SELECT studentId, studentNaam, studentNummer, klasNaam FROM Studenten, Klassen, StudentVak, Vakken WHERE Klassen.klasId = Studenten.klasId AND Studenten.studentId=" +
+                    "StudentVak.studentId AND StudentVak.vakId = @ID", con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.SelectCommand.Parameters.AddWithValue("@ID", Id);
+                da.Fill(dt);
+
+                return dt;
+            }
+            return dt;
+        }
     }
 }
