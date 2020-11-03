@@ -6,12 +6,12 @@
                 <asp:BoundField DataField="lokaalId" HeaderText="lokaalId" InsertVisible="False" ReadOnly="True" SortExpression="lokaalId" />
                 <asp:BoundField DataField="lokaalNaam" HeaderText="lokaalNaam" SortExpression="lokaalNaam" />
                 <asp:BoundField DataField="lokaalCapaciteit" HeaderText="lokaalCapaciteit" SortExpression="lokaalCapaciteit" />
-                <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Select" />
+                <asp:ButtonField ControlStyle-CssClass="selBtn" ButtonType="Button" CommandName="Select" Text="Select" />
             </Columns>
         </asp:GridView>
     </div>
-    <div id="ClassDetails">
-        <asp:DetailsView ID="DVclassrooms" runat="server" AutoGenerateRows="False" DataKeyNames="lokaalId" DataSourceID="SqlDataSource2" Height="50px" Width="125px">
+    <div id="ClassDetails" Class="viewSplit">
+        <asp:DetailsView ID="DVclassrooms" runat="server" AutoGenerateRows="False" DataKeyNames="lokaalId" DataSourceID="SqlDataSource2" Height="50px" Width="125px" Visible="False">
             <Fields>
                 <asp:BoundField DataField="lokaalId" HeaderText="lokaalId" InsertVisible="False" ReadOnly="True" SortExpression="lokaalId" />
                 <asp:BoundField DataField="lokaalNaam" HeaderText="lokaalNaam" SortExpression="lokaalNaam" />

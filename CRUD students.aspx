@@ -1,29 +1,33 @@
 ﻿<%@ Page Title="StudentCrud" Language="C#" MasterPageFile="~/Masterpage.Master" AutoEventWireup="true" CodeBehind="CRUD students.aspx.cs" Inherits="b2c2casusb2d22.CRUD_students" %>
 <asp:Content ID="StudCrudContent" ContentPlaceHolderID="MainWindow" runat="server">
-    <div id="StudSelectGrid">
-        Sort by courses <asp:DropDownList ID="dropDownSort" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource7" DataTextField="vakNaam" DataValueField="vakId" OnSelectedIndexChanged="dropDownSort_SelectedIndexChanged"></asp:DropDownList>
-        Sort bij class <asp:DropDownList ID="dropDownSort2" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource8" DataTextField="klasNaam" DataValueField="klasId" OnSelectedIndexChanged="dropDownSort2_SelectedIndexChanged"></asp:DropDownList>
-        Edit:<asp:DropDownList ID="dllChoice" runat="server" AutoPostBack="True">
+    <div class="filtBar1" id="StudFilt">
+        <asp:Label ID="ExplLbl1" runat="server" Text="Sort by courses"></asp:Label>
+        <asp:DropDownList CssClass="filtFld" ID="dropDownSort" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource7" DataTextField="vakNaam" DataValueField="vakId" OnSelectedIndexChanged="dropDownSort_SelectedIndexChanged"></asp:DropDownList>
+        <asp:Label ID="ExplLbl2" runat="server" Text="Sort by class"></asp:Label>
+        <asp:DropDownList CssClass="filtFld" ID="dropDownSort2" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource8" DataTextField="klasNaam" DataValueField="klasId" OnSelectedIndexChanged="dropDownSort2_SelectedIndexChanged"></asp:DropDownList>
+        <asp:Label ID="ExplLbl3" runat="server" Text="Edit:"></asp:Label>
+        <asp:DropDownList CssClass="filtFld" ID="dllChoice" runat="server" AutoPostBack="True" OnSelectedIndexChanged="dllChoice_SelectedIndexChanged">
             <asp:ListItem Value="1">Expertises</asp:ListItem>
             <asp:ListItem Value="2">Interesses</asp:ListItem>
             <asp:ListItem Value="3">Socials</asp:ListItem>
             <asp:ListItem Value="4">Vakken</asp:ListItem>
             <asp:ListItem Value="5">Student</asp:ListItem>
         </asp:DropDownList>
-
+    </div>
+    <div id="StudSelectGrid">
         <asp:GridView ID="gvStudenten" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="studentId" OnSelectedIndexChanged="gvStudenten_SelectedIndexChanged" OnRowCommand="gvStudenten_RowCommand">
             <Columns>
                 <asp:BoundField DataField="studentId" HeaderText="studentId" SortExpression="studentId" InsertVisible="False" ReadOnly="True" />
                 <asp:BoundField DataField="studentNaam" HeaderText="studentNaam" SortExpression="studentNaam" />
                 <asp:BoundField DataField="studentNummer" HeaderText="studentNummer" SortExpression="studentNummer" />
                 <asp:BoundField DataField="klasNaam" HeaderText="Klas" SortExpression="Klas" />
-                <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Select" />
-                <asp:ButtonField ButtonType="Button" CommandName="checkProfile" HeaderText="Profile" ShowHeader="True" Text="Profile"></asp:ButtonField>
+                <asp:ButtonField ControlStyle-CssClass="selBtn" ButtonType="Button" CommandName="Select" Text="Select" />
+                <asp:ButtonField ControlStyle-CssClass="selBtn" ButtonType="Button" CommandName="checkProfile" HeaderText="Profile" ShowHeader="True" Text="Profile"></asp:ButtonField>
             </Columns>
         </asp:GridView>
     </div>
-    <div id="StudDataGrid">
-        <asp:DetailsView ID="dvExpStudent" runat="server" AllowPaging="True" AutoGenerateRows="False" DataSourceID="SqlDataSource2" Height="50px" Width="125px">
+    <div id="StudDataGrid" class="viewSplit">
+        <asp:DetailsView ID="dvExpStudent" runat="server" AllowPaging="True" AutoGenerateRows="False" DataSourceID="SqlDataSource2" Height="50px" Width="125px" Visible="false">
             <Fields>
                 <asp:BoundField DataField="studentNaam" HeaderText="studentNaam" SortExpression="studentNaam" />
                 <asp:BoundField DataField="expertiseNaam" HeaderText="expertiseNaam" SortExpression="expertiseNaam" />
@@ -32,14 +36,14 @@
             </Fields>
         </asp:DetailsView>       
 
-        <asp:DetailsView ID="dvIntStudent" runat="server" AllowPaging="True" AutoGenerateRows="False" DataSourceID="SqlDataSource3" Height="50px" Width="125px">
+        <asp:DetailsView ID="dvIntStudent" runat="server" AllowPaging="True" AutoGenerateRows="False" DataSourceID="SqlDataSource3" Height="50px" Width="125px" Visible="false">
             <Fields>
                 <asp:BoundField DataField="interesseNaam" HeaderText="interesseNaam" SortExpression="interesseNaam" />
                 <asp:CommandField ShowInsertButton="True" />
             </Fields>
         </asp:DetailsView>
         
-        <asp:DetailsView ID="dvSocialStudent" runat="server" AllowPaging="True" AutoGenerateRows="False" DataKeyNames="studentId,socialId" DataSourceID="SqlDataSource4" Height="50px" Width="125px">
+        <asp:DetailsView ID="dvSocialStudent" runat="server" AllowPaging="True" AutoGenerateRows="False" DataKeyNames="studentId,socialId" DataSourceID="SqlDataSource4" Height="50px" Width="125px" Visible="false">
             <Fields>
                 <asp:TemplateField HeaderText="studentId" SortExpression="studentId">
                     <EditItemTemplate>
@@ -68,7 +72,7 @@
             </Fields>
         </asp:DetailsView>
       
-        <asp:DetailsView ID="dvVakStudent" runat="server" AllowPaging="True" AutoGenerateRows="False" DataKeyNames="studentId,vakId" DataSourceID="SqlDataSource5" Height="50px" Width="125px">
+        <asp:DetailsView ID="dvVakStudent" runat="server" AllowPaging="True" AutoGenerateRows="False" DataKeyNames="studentId,vakId" DataSourceID="SqlDataSource5" Height="50px" Width="125px" Visible="false">
             <Fields>
                 <asp:TemplateField HeaderText="studentId" SortExpression="studentId">
                     <EditItemTemplate>
@@ -96,7 +100,7 @@
             </Fields>
         </asp:DetailsView>
 
-        <asp:DetailsView ID="dvStudent" runat="server" AutoGenerateRows="False" DataKeyNames="studentId" DataSourceID="SqlDataSource6" Height="50px" Width="125px">
+        <asp:DetailsView ID="dvStudent" runat="server" AutoGenerateRows="False" DataKeyNames="studentId" DataSourceID="SqlDataSource6" Height="50px" Width="125px" Visible="false">
             <Fields>
                 <asp:BoundField DataField="studentId" HeaderText="studentId" InsertVisible="False" ReadOnly="True" SortExpression="studentId" />
                 <asp:BoundField DataField="studentNaam" HeaderText="studentNaam" SortExpression="studentNaam" />

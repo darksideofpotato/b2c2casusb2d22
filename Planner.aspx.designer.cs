@@ -15,13 +15,13 @@ namespace b2c2casusb2d22
     {
 
         /// <summary>
-        /// labelId control.
+        /// ExplLbl4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelId;
+        protected global::System.Web.UI.WebControls.Label ExplLbl4;
 
         /// <summary>
         /// dropDownLokaal control.
@@ -42,6 +42,15 @@ namespace b2c2casusb2d22
         protected global::System.Web.UI.WebControls.GridView gridViewPlanner;
 
         /// <summary>
+        /// labelId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelId;
+
+        /// <summary>
         /// lblError control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace b2c2casusb2d22
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblError;
+
+        /// <summary>
+        /// ExplLbl6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ExplLbl6;
 
         /// <summary>
         /// calendarPlanner control.
@@ -60,6 +78,15 @@ namespace b2c2casusb2d22
         protected global::System.Web.UI.WebControls.Calendar calendarPlanner;
 
         /// <summary>
+        /// ExplLbl7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ExplLbl7;
+
+        /// <summary>
         /// dropDownTimes control.
         /// </summary>
         /// <remarks>
@@ -69,6 +96,15 @@ namespace b2c2casusb2d22
         protected global::System.Web.UI.WebControls.DropDownList dropDownTimes;
 
         /// <summary>
+        /// ExplLbl8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ExplLbl8;
+
+        /// <summary>
         /// dropDownStudents control.
         /// </summary>
         /// <remarks>
@@ -76,6 +112,15 @@ namespace b2c2casusb2d22
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList dropDownStudents;
+
+        /// <summary>
+        /// ExplLbl9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ExplLbl9;
 
         /// <summary>
         /// dropDownSelectClassroom control.
