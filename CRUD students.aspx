@@ -15,67 +15,26 @@
                 <asp:BoundField DataField="studentId" HeaderText="studentId" SortExpression="studentId" InsertVisible="False" ReadOnly="True" />
                 <asp:BoundField DataField="studentNaam" HeaderText="studentNaam" SortExpression="studentNaam" />
                 <asp:BoundField DataField="studentNummer" HeaderText="studentNummer" SortExpression="studentNummer" />
-                <asp:BoundField DataField="klasId" HeaderText="klasId" SortExpression="klasId" />
+                <asp:BoundField DataField="klasNaam" HeaderText="Klas" SortExpression="Klas" />
                 <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Select" />
                 <asp:ButtonField ButtonType="Button" CommandName="checkProfile" HeaderText="Profile" ShowHeader="True" Text="Profile"></asp:ButtonField>
             </Columns>
         </asp:GridView>
     </div>
     <div id="StudDataGrid">
-        <asp:DetailsView ID="dvExpStudent" runat="server" AllowPaging="True" AutoGenerateRows="False" DataKeyNames="studentId,expertiseId" DataSourceID="SqlDataSource2" Height="50px" Width="125px">
+        <asp:DetailsView ID="dvExpStudent" runat="server" AllowPaging="True" AutoGenerateRows="False" DataSourceID="SqlDataSource2" Height="50px" Width="125px">
             <Fields>
-                <asp:TemplateField HeaderText="studentId" SortExpression="studentId">
-                    <EditItemTemplate>
-                        <asp:DropDownList ID="dllStudenten" runat="server" DataSourceID="SqlDataSourceStu" DataTextField="studentNaam" DataValueField="studentId" SelectedValue='<%# Bind("studentId") %>'></asp:DropDownList>
-                    </EditItemTemplate>
-                    <InsertItemTemplate>
-                        <asp:DropDownList ID="dllStudenten" runat="server" DataSourceID="SqlDataSourceStu" DataTextField="studentNaam" DataValueField="studentId" SelectedValue='<%# Bind("studentId") %>'></asp:DropDownList>
-                    </InsertItemTemplate>
-                    <ItemTemplate>
-                        <asp:Label ID="Label2" runat="server" Text='<%# Eval("studentId") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="expertiseId" SortExpression="expertiseId">
-                    <EditItemTemplate>
-                        <asp:DropDownList ID="dllExpertise" runat="server" DataSourceID="SqlDataSourceExp" DataTextField="expertiseNaam" DataValueField="expertiseId" SelectedValue='<%# Bind("expertiseId") %>'></asp:DropDownList>
-                    </EditItemTemplate>
-                    <InsertItemTemplate>
-                        <asp:DropDownList ID="dllExpertise" runat="server" DataSourceID="SqlDataSourceExp" DataTextField="expertiseNaam" DataValueField="expertiseId" SelectedValue='<%# Bind("expertiseId") %>'></asp:DropDownList>
-                    </InsertItemTemplate>
-                    <ItemTemplate>
-                        <asp:Label ID="Label2" runat="server" Text='<%# Eval("expertiseId") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
+                <asp:BoundField DataField="studentNaam" HeaderText="studentNaam" SortExpression="studentNaam" />
+                <asp:BoundField DataField="expertiseNaam" HeaderText="expertiseNaam" SortExpression="expertiseNaam" />
                 <asp:BoundField DataField="expertiseNiveau" HeaderText="expertiseNiveau" SortExpression="expertiseNiveau" />
                 <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowInsertButton="True" />
             </Fields>
         </asp:DetailsView>       
 
-        <asp:DetailsView ID="dvIntStudent" runat="server" AllowPaging="True" AutoGenerateRows="False" DataKeyNames="studentId,interesseId" DataSourceID="SqlDataSource3" Height="50px" Width="125px">
+        <asp:DetailsView ID="dvIntStudent" runat="server" AllowPaging="True" AutoGenerateRows="False" DataSourceID="SqlDataSource3" Height="50px" Width="125px">
             <Fields>
-                <asp:TemplateField HeaderText="studentId" SortExpression="studentId">
-                    <EditItemTemplate>
-                        <asp:DropDownList ID="dllStudenten" runat="server" DataSourceID="SqlDataSourceStu" DataTextField="studentNaam" DataValueField="studentId" SelectedValue='<%# Bind("studentId") %>'></asp:DropDownList>
-                    </EditItemTemplate>
-                    <InsertItemTemplate>
-                        <asp:DropDownList ID="dllStudenten" runat="server" DataSourceID="SqlDataSourceStu" DataTextField="studentNaam" DataValueField="studentId" SelectedValue='<%# Bind("studentId") %>'></asp:DropDownList>
-                    </InsertItemTemplate>
-                    <ItemTemplate>
-                        <asp:Label ID="Label2" runat="server" Text='<%# Eval("studentId") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="interesseId" SortExpression="interesseId">
-                    <EditItemTemplate>
-                        <asp:DropDownList ID="dllInteresses" runat="server" DataSourceID="SqlDataSourceInt" DataTextField="interesseNaam" DataValueField="interesseId" SelectedValue='<%# Bind("interesseId") %>'></asp:DropDownList>
-                    </EditItemTemplate>
-                    <InsertItemTemplate>
-                        <asp:DropDownList ID="dllInteresses" runat="server" DataSourceID="SqlDataSourceInt" DataTextField="interesseNaam" DataValueField="interesseId" SelectedValue='<%# Bind("interesseId") %>'></asp:DropDownList>
-                    </InsertItemTemplate>
-                    <ItemTemplate>
-                        <asp:Label ID="Label2" runat="server" Text='<%# Eval("interesseId") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:CommandField ShowDeleteButton="True" ShowInsertButton="True" />
+                <asp:BoundField DataField="interesseNaam" HeaderText="interesseNaam" SortExpression="interesseNaam" />
+                <asp:CommandField ShowInsertButton="True" />
             </Fields>
         </asp:DetailsView>
         
@@ -156,9 +115,9 @@
             </Fields>
         </asp:DetailsView>
 
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString3 %>" SelectCommand="SELECT * FROM [Studenten]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString %>" SelectCommand="SELECT studentId, studentNaam, studentNummer, klasNaam FROM Studenten, Klassen WHERE Klassen.klasId = Studenten.klasId"></asp:SqlDataSource>
         
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString3 %>" DeleteCommand="DELETE FROM [StudentExpertise] WHERE [studentId] = @studentId AND [expertiseId] = @expertiseId" InsertCommand="INSERT INTO [StudentExpertise] ([studentId], [expertiseId], [expertiseNiveau]) VALUES (@studentId, @expertiseId, @expertiseNiveau)" SelectCommand="SELECT * FROM [StudentExpertise] WHERE ([studentId] = @studentId)" UpdateCommand="UPDATE [StudentExpertise] SET [expertiseNiveau] = @expertiseNiveau WHERE [studentId] = @studentId AND [expertiseId] = @expertiseId">
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString %>" DeleteCommand="DELETE FROM [StudentExpertise] WHERE [studentId] = @studentId AND [expertiseId] = @expertiseId" InsertCommand="INSERT INTO [StudentExpertise] ([studentId], [expertiseId], [expertiseNiveau]) VALUES (@studentId, @expertiseId, @expertiseNiveau)" SelectCommand="SELECT studentNaam, expertiseNaam, expertiseNiveau FROM StudentExpertise, Studenten, Expertises WHERE Studenten.studentId = @studentId AND Studenten.studentId = StudentExpertise.studentId AND StudentExpertise.expertiseId = Expertises.expertiseId" UpdateCommand="UPDATE [StudentExpertise] SET [expertiseNiveau] = @expertiseNiveau WHERE [studentId] = @studentId AND [expertiseId] = @expertiseId">
             <DeleteParameters>
                 <asp:Parameter Name="studentId" Type="Int32" />
                 <asp:Parameter Name="expertiseId" Type="Int32" />
@@ -178,7 +137,7 @@
             </UpdateParameters>
         </asp:SqlDataSource>
 
-        <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString3 %>" DeleteCommand="DELETE FROM [StudentInteresse] WHERE [studentId] = @studentId AND [interesseId] = @interesseId" InsertCommand="INSERT INTO [StudentInteresse] ([studentId], [interesseId]) VALUES (@studentId, @interesseId)" SelectCommand="SELECT * FROM [StudentInteresse] WHERE ([studentId] = @studentId)">
+        <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString %>" DeleteCommand="DELETE FROM [StudentInteresse] WHERE [studentId] = @studentId AND [interesseId] = @interesseId" InsertCommand="INSERT INTO [StudentInteresse] ([studentId], [interesseId]) VALUES (@studentId, @interesseId)" SelectCommand="SELECT interesseNaam FROM Interesses, Studenten, StudentInteresse WHERE Studenten.studentId = @studentId AND Studenten.studentId = StudentInteresse.studentId ">
             <DeleteParameters>
                 <asp:Parameter Name="studentId" Type="Int32" />
                 <asp:Parameter Name="interesseId" Type="Int32" />
@@ -192,7 +151,7 @@
             </SelectParameters>
         </asp:SqlDataSource>
 
-        <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString3 %>" DeleteCommand="DELETE FROM [StudentSocial] WHERE [socialId] = @socialId AND [studentId] = @studentId" InsertCommand="INSERT INTO [StudentSocial] ([socialId], [studentId], [socialLink]) VALUES (@socialId, @studentId, @socialLink)" SelectCommand="SELECT * FROM [StudentSocial] WHERE ([studentId] = @studentId)" UpdateCommand="UPDATE [StudentSocial] SET [socialLink] = @socialLink WHERE [socialId] = @socialId AND [studentId] = @studentId">
+        <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString %>" DeleteCommand="DELETE FROM [StudentSocial] WHERE [socialId] = @socialId AND [studentId] = @studentId" InsertCommand="INSERT INTO [StudentSocial] ([socialId], [studentId], [socialLink]) VALUES (@socialId, @studentId, @socialLink)" SelectCommand="SELECT * FROM [StudentSocial] WHERE ([studentId] = @studentId)" UpdateCommand="UPDATE [StudentSocial] SET [socialLink] = @socialLink WHERE [socialId] = @socialId AND [studentId] = @studentId">
             <DeleteParameters>
                 <asp:Parameter Name="socialId" Type="Int32" />
                 <asp:Parameter Name="studentId" Type="Int32" />
@@ -212,7 +171,7 @@
             </UpdateParameters>
         </asp:SqlDataSource>
 
-        <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString3 %>" DeleteCommand="DELETE FROM [StudentVak] WHERE [studentId] = @studentId AND [vakId] = @vakId" InsertCommand="INSERT INTO [StudentVak] ([studentId], [vakId]) VALUES (@studentId, @vakId)" SelectCommand="SELECT * FROM [StudentVak] WHERE ([studentId] = @studentId)">
+        <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString %>" DeleteCommand="DELETE FROM [StudentVak] WHERE [studentId] = @studentId AND [vakId] = @vakId" InsertCommand="INSERT INTO [StudentVak] ([studentId], [vakId]) VALUES (@studentId, @vakId)" SelectCommand="SELECT * FROM [StudentVak] WHERE ([studentId] = @studentId)">
             <DeleteParameters>
                 <asp:Parameter Name="studentId" Type="Int32" />
                 <asp:Parameter Name="vakId" Type="Int32" />
@@ -226,7 +185,7 @@
             </SelectParameters>
         </asp:SqlDataSource>
 
-        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString3 %>" DeleteCommand="DELETE FROM [Studenten] WHERE [studentId] = @studentId" InsertCommand="INSERT INTO [Studenten] ([studentNaam], [studentNummer], [klasId]) VALUES (@studentNaam, @studentNummer, @klasId)" SelectCommand="SELECT * FROM [Studenten] WHERE ([studentId] = @studentId)" UpdateCommand="UPDATE [Studenten] SET [studentNaam] = @studentNaam, [studentNummer] = @studentNummer, [klasId] = @klasId WHERE [studentId] = @studentId">
+        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString %>" DeleteCommand="DELETE FROM [Studenten] WHERE [studentId] = @studentId" InsertCommand="INSERT INTO [Studenten] ([studentNaam], [studentNummer], [klasId]) VALUES (@studentNaam, @studentNummer, @klasId)" SelectCommand="SELECT * FROM [Studenten] WHERE ([studentId] = @studentId)" UpdateCommand="UPDATE [Studenten] SET [studentNaam] = @studentNaam, [studentNummer] = @studentNummer, [klasId] = @klasId WHERE [studentId] = @studentId">
             <DeleteParameters>
                 <asp:Parameter Name="studentId" Type="Int32" />
             </DeleteParameters>
@@ -246,12 +205,12 @@
             </UpdateParameters>
         </asp:SqlDataSource>
 
-        <asp:SqlDataSource ID="SqlDataSourceStu" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString3 %>" SelectCommand="SELECT [studentId], [studentNaam] FROM [Studenten]"></asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataSourceExp" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString3 %>" SelectCommand="SELECT * FROM [Expertises]"></asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataSourceInt" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString3 %>" SelectCommand="SELECT * FROM [Interesses]"></asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataSourceSoc" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString3 %>" SelectCommand="SELECT * FROM [Socials]"></asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataSourceVak" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString3 %>" SelectCommand="SELECT * FROM [Vakken]"></asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataSourceKlas" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString3 %>" SelectCommand="SELECT * FROM [Klassen]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSourceStu" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString %>" SelectCommand="SELECT [studentId], [studentNaam] FROM [Studenten]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSourceExp" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString %>" SelectCommand="SELECT * FROM [Expertises]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSourceInt" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString %>" SelectCommand="SELECT * FROM [Interesses]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSourceSoc" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString %>" SelectCommand="SELECT * FROM [Socials]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSourceVak" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString %>" SelectCommand="SELECT * FROM [Vakken]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSourceKlas" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString %>" SelectCommand="SELECT * FROM [Klassen]"></asp:SqlDataSource>
 
     </div>
 </asp:Content>

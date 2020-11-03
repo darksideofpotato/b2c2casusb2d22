@@ -12,7 +12,7 @@
                 <asp:BoundField DataField="expertiseNiveau" HeaderText="expertiseNiveau" SortExpression="expertiseNiveau" />
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString3 %>" SelectCommand="SELECT expertiseNaam, expertiseNiveau FROM Expertises, StudentExpertise, Studenten WHERE Expertises.expertiseId = StudentExpertise.expertiseId AND Studenten.studentId = @id AND Studenten.studentId = StudentExpertise.studentId">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString %>" SelectCommand="SELECT expertiseNaam, expertiseNiveau FROM Expertises, StudentExpertise, Studenten WHERE Expertises.expertiseId = StudentExpertise.expertiseId AND Studenten.studentId = @id AND Studenten.studentId = StudentExpertise.studentId">
             <SelectParameters>
                 <asp:ControlParameter ControlID="lblId" Name="id" PropertyName="Text"/>
             </SelectParameters>
@@ -89,7 +89,7 @@
                 </tr>
             </SelectedItemTemplate>
         </asp:ListView>
-        <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString3 %>" SelectCommand="SELECT vakNaam FROM Vakken, StudentVak, Studenten WHERE Studenten.studentId = @id AND Studenten.studentId = StudentVak.studentId AND StudentVak.vakId = Vakken.vakId">
+        <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString %>" SelectCommand="SELECT vakNaam FROM Vakken, StudentVak, Studenten WHERE Studenten.studentId = @id AND Studenten.studentId = StudentVak.studentId AND StudentVak.vakId = Vakken.vakId">
             <SelectParameters>
                 <asp:ControlParameter ControlID="lblId" DefaultValue="1" Name="id" PropertyName="Text" />
             </SelectParameters>
@@ -165,7 +165,7 @@
             </SelectedItemTemplate>
         </asp:ListView>
 
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString3 %>" SelectCommand="SELECT interesseNaam FROM Interesses, StudentInteresse, Studenten WHERE Studenten.studentId = @id AND Studenten.studentId = StudentInteresse.studentId AND Interesses.interesseId = StudentInteresse.interesseId">
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString %>" SelectCommand="SELECT interesseNaam FROM Interesses, StudentInteresse, Studenten WHERE Studenten.studentId = @id AND Studenten.studentId = StudentInteresse.studentId AND Interesses.interesseId = StudentInteresse.interesseId">
             <SelectParameters>
                 <asp:ControlParameter ControlID="lblId" DefaultValue="1" Name="id" PropertyName="Text" />
             </SelectParameters>
@@ -256,7 +256,7 @@
                 </tr>
             </SelectedItemTemplate>
         </asp:ListView>
-        <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString3 %>" SelectCommand="SELECT socialNaam, socialLink FROM Socials, StudentSocial, Studenten WHERE Studenten.studentId = @id AND Studenten.studentId = StudentSocial.studentId AND StudentSocial.socialId = Socials.socialId">
+        <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString %>" SelectCommand="SELECT socialNaam, socialLink FROM Socials, StudentSocial, Studenten WHERE Studenten.studentId = @id AND Studenten.studentId = StudentSocial.studentId AND StudentSocial.socialId = Socials.socialId">
             <SelectParameters>
                 <asp:ControlParameter ControlID="lblId" Name="id" PropertyName="Text" />
             </SelectParameters>

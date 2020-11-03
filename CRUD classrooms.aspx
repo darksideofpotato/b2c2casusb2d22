@@ -11,7 +11,7 @@
         </asp:GridView>
     </div>
     <div id="ClassDetails">
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString3 %>" SelectCommand="SELECT * FROM [Lokalen]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString %>" SelectCommand="SELECT * FROM [Lokalen]"></asp:SqlDataSource>
         <asp:DetailsView ID="DVclassrooms" runat="server" AutoGenerateRows="False" DataKeyNames="lokaalId" DataSourceID="SqlDataSource2" Height="50px" Width="125px">
             <Fields>
                 <asp:BoundField DataField="lokaalId" HeaderText="lokaalId" InsertVisible="False" ReadOnly="True" SortExpression="lokaalId" />
@@ -20,7 +20,7 @@
                 <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowInsertButton="True" />
             </Fields>
         </asp:DetailsView>
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString3 %>" DeleteCommand="DELETE FROM [Lokalen] WHERE [lokaalId] = @lokaalId" InsertCommand="INSERT INTO [Lokalen] ([lokaalNaam], [lokaalCapaciteit]) VALUES (@lokaalNaam, @lokaalCapaciteit)" SelectCommand="SELECT * FROM [Lokalen] WHERE ([lokaalId] = @lokaalId)" UpdateCommand="UPDATE [Lokalen] SET [lokaalNaam] = @lokaalNaam, [lokaalCapaciteit] = @lokaalCapaciteit WHERE [lokaalId] = @lokaalId">
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString %>" DeleteCommand="DELETE FROM [Lokalen] WHERE [lokaalId] = @lokaalId" InsertCommand="INSERT INTO [Lokalen] ([lokaalNaam], [lokaalCapaciteit]) VALUES (@lokaalNaam, @lokaalCapaciteit)" SelectCommand="SELECT * FROM [Lokalen] WHERE ([lokaalId] = @lokaalId)" UpdateCommand="UPDATE [Lokalen] SET [lokaalNaam] = @lokaalNaam, [lokaalCapaciteit] = @lokaalCapaciteit WHERE [lokaalId] = @lokaalId">
             <DeleteParameters>
                 <asp:Parameter Name="lokaalId" Type="Int32" />
             </DeleteParameters>

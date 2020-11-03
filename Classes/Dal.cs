@@ -15,7 +15,7 @@ namespace b2c2casusb2d22.Classes
         // Het connecten met de database via de connectiestring. Even aanpassen naar je eigen connectiestring dus ;)
         public SqlConnection databaseConnect()
         {
-            string connectionString = @"Data Source=LAPTOP-RPOP6DH9;Initial Catalog=AfstandslerenDB;Integrated Security=True";
+            string connectionString = @"Data Source=JUDITH-PC;Initial Catalog=AfstandslerenDB;Integrated Security=True";
 
             con = new SqlConnection(connectionString);
 
