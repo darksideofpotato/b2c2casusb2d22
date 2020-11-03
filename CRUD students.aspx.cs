@@ -14,7 +14,11 @@ namespace b2c2casusb2d22
         Dal dal = new Dal();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            dvExpStudent.Visible = false;
+            dvIntStudent.Visible = false;
+            dvSocialStudent.Visible = false;
+            dvVakStudent.Visible = false;
+            dvStudent.Visible = false;
         }
 
         protected void gvStudenten_SelectedIndexChanged(object sender, EventArgs e)

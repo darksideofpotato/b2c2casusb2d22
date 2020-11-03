@@ -8,7 +8,6 @@
         </asp:DropDownList>
     </div>
     <div>
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString %>" SelectCommand="SELECT * FROM [Lokalen]"></asp:SqlDataSource>
         <p>Current planning</p>
         <asp:GridView ID="gridViewPlanner" runat="server" AutoGenerateColumns="False" OnRowCommand="gridViewPlanner_RowCommand">
             <Columns>
@@ -42,12 +41,13 @@
             <asp:ListItem>16:00</asp:ListItem>
             <asp:ListItem>17:00</asp:ListItem>
         </asp:DropDownList>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString %>" SelectCommand="SELECT * FROM [Studenten]"></asp:SqlDataSource>
         <p>Who is planning the appointment?</p>
         <asp:DropDownList ID="dropDownStudents" runat="server" DataSourceID="SqlDataSource1" DataTextField="studentNaam" DataValueField="studentId"></asp:DropDownList>
         <p>In which classroom?</p>
         <asp:DropDownList ID="dropDownSelectClassroom" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="lokaalNaam" DataValueField="lokaalId" OnSelectedIndexChanged="dropDownLokaal_SelectedIndexChanged" AppendDataBoundItems="True"></asp:DropDownList>
         <asp:Button ID="buttonAddToPlanner" runat="server" Text="Add reservation" OnClick="buttonAddToPlanner_Click" />
         <asp:Button ID="buttonUpdateAppointment" runat="server" Text="Update selected appointment" OnClick="buttonUpdateAppointment_Click" EnableTheming="True" />
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString3 %>" SelectCommand="SELECT * FROM [Studenten]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString3 %>" SelectCommand="SELECT * FROM [Lokalen]"></asp:SqlDataSource>
     </div>
 </asp:Content>

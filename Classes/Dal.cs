@@ -15,7 +15,7 @@ namespace b2c2casusb2d22.Classes
         // Het connecten met de database via de connectiestring. Even aanpassen naar je eigen connectiestring dus ;)
         public SqlConnection databaseConnect()
         {
-            string connectionString = @"Data Source=JUDITH-PC;Initial Catalog=AfstandslerenDB;Integrated Security=True";
+            string connectionString = @"Data Source=LAPTOP-RPOP6DH9;Initial Catalog=AfstandslerenDB;Integrated Security=True";
 
             con = new SqlConnection(connectionString);
 
@@ -206,8 +206,8 @@ namespace b2c2casusb2d22.Classes
             }
             else if (whatToChange == "course")
             {
-                SqlCommand cmd = new SqlCommand("SELECT studentId, studentNaam, studentNummer, klasNaam FROM Studenten, Klassen, StudentVak, Vakken WHERE Klassen.klasId = Studenten.klasId AND Studenten.studentId=" +
-                    "StudentVak.studentId AND StudentVak.vakId = @ID", con);
+                SqlCommand cmd = new SqlCommand("SELECT Studenten.studentId, Studenten.studentNaam, Studenten.studentNummer, Klassen.klasNaam FROM Studenten INNER JOIN " +
+                "StudentVak ON Studenten.studentId = StudentVak.studentId INNER JOIN Vakken ON StudentVak.vakId = Vakken.vakId INNER JOIN Klassen ON Studenten.klasId = Klassen.klasId WHERE StudentVak.vakId = @ID", con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.SelectCommand.Parameters.AddWithValue("@ID", Id);
                 da.Fill(dt);

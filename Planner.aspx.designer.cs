@@ -33,15 +33,6 @@ namespace b2c2casusb2d22
         protected global::System.Web.UI.WebControls.DropDownList dropDownLokaal;
 
         /// <summary>
-        /// SqlDataSource2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
-
-        /// <summary>
         /// gridViewPlanner control.
         /// </summary>
         /// <remarks>
@@ -78,15 +69,6 @@ namespace b2c2casusb2d22
         protected global::System.Web.UI.WebControls.DropDownList dropDownTimes;
 
         /// <summary>
-        /// SqlDataSource1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
-
-        /// <summary>
         /// dropDownStudents control.
         /// </summary>
         /// <remarks>
@@ -121,5 +103,23 @@ namespace b2c2casusb2d22
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button buttonUpdateAppointment;
+
+        /// <summary>
+        /// SqlDataSource1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+
+        /// <summary>
+        /// SqlDataSource2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
     }
 }

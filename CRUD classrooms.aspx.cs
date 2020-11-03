@@ -11,7 +11,12 @@ namespace b2c2casusb2d22
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            DVclassrooms.Visible = false;
+        }
 
+        protected void GVclassroom_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DVclassrooms.Visible = true;
         }
     }
 }

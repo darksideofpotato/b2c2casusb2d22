@@ -60,15 +60,6 @@ namespace b2c2casusb2d22
         protected global::System.Web.UI.WebControls.GridView gridViewExpertise;
 
         /// <summary>
-        /// SqlDataSource1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
-
-        /// <summary>
         /// listCourses control.
         /// </summary>
         /// <remarks>
@@ -76,15 +67,6 @@ namespace b2c2casusb2d22
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView listCourses;
-
-        /// <summary>
-        /// SqlDataSource3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource3;
 
         /// <summary>
         /// listInterests control.
@@ -96,6 +78,24 @@ namespace b2c2casusb2d22
         protected global::System.Web.UI.WebControls.ListView listInterests;
 
         /// <summary>
+        /// listSocials control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView listSocials;
+
+        /// <summary>
+        /// SqlDataSource1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+
+        /// <summary>
         /// SqlDataSource2 control.
         /// </summary>
         /// <remarks>
@@ -105,13 +105,13 @@ namespace b2c2casusb2d22
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
 
         /// <summary>
-        /// listSocials control.
+        /// SqlDataSource3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView listSocials;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource3;
 
         /// <summary>
         /// SqlDataSource4 control.
