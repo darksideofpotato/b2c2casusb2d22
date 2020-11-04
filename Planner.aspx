@@ -1,16 +1,17 @@
 ﻿<%@ Page Title="Planner" Language="C#" MasterPageFile="~/Masterpage.Master" AutoEventWireup="true" CodeBehind="Planner.aspx.cs" Inherits="b2c2casusb2d22.Planner" %>
+
 <asp:Content ID="PlannerContent" ContentPlaceHolderID="MainWindow" runat="server">
     <div class="flex-container" id="flexMain">
         <div id="gridPlanDiv">
             <div class="filtBar2" id="gridPlanBar">
                 <asp:Label ID="ExplLbl4" runat="server" Text="Sort by classroom"></asp:Label>
-            <asp:DropDownList CssClass="filtFld" ID="dropDownLokaal" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="lokaalNaam" DataValueField="lokaalId" OnSelectedIndexChanged="dropDownLokaal_SelectedIndexChanged" AppendDataBoundItems="True">
-                <asp:ListItem Value="0">All</asp:ListItem>
-            </asp:DropDownList>
+                <asp:DropDownList CssClass="filtFld" ID="dropDownLokaal" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="lokaalNaam" DataValueField="lokaalId" OnSelectedIndexChanged="dropDownLokaal_SelectedIndexChanged" AppendDataBoundItems="True">
+                    <asp:ListItem Value="0">All</asp:ListItem>
+                </asp:DropDownList>
             </div>
             <asp:GridView ID="gridViewPlanner" runat="server" AutoGenerateColumns="False" OnRowCommand="gridViewPlanner_RowCommand">
                 <Columns>
-                    <asp:Boundfield Datafield="lokaalplannerId" HeaderText="Id" SortExpression="lokaalplannerId" />
+                    <asp:BoundField DataField="lokaalplannerId" HeaderText="Id" SortExpression="lokaalplannerId" />
                     <asp:BoundField DataField="lokaalNaam" HeaderText="lokaalNaam" SortExpression="lokaalNaam" />
                     <asp:BoundField DataField="lokaalNaam" HeaderText="lokaalNaam" SortExpression="lokaalNaam" />
                     <asp:BoundField DataField="datum" HeaderText="datum" SortExpression="datum" />
@@ -43,7 +44,7 @@
                 <asp:DropDownList CssClass="filtFld widthFix" ID="dropDownStudents" runat="server" DataSourceID="SqlDataSource1" DataTextField="studentNaam" DataValueField="studentId"></asp:DropDownList>
                 <asp:Label CssClass="widthFix" ID="ExplLbl9" runat="server" Text="Classroom:"></asp:Label>
                 <asp:DropDownList CssClass="filtFld widthFix" ID="dropDownSelectClassroom" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="lokaalNaam" DataValueField="lokaalId" OnSelectedIndexChanged="dropDownLokaal_SelectedIndexChanged" AppendDataBoundItems="True"></asp:DropDownList>
-                
+
             </div>
         </div>
     </div>

@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="Home" Language="C#" MasterPageFile="~/Masterpage.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="b2c2casusb2d22.Home" %>
+
 <asp:Content ID="HomeContent" ContentPlaceHolderID="MainWindow" runat="server">
     <div class="explDiv">
         <p>Welcome to the prototype of WeConnect!</p>

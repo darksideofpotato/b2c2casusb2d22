@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="ClassroomCrud" Language="C#" MasterPageFile="~/Masterpage.Master" AutoEventWireup="true" CodeBehind="CRUD classrooms.aspx.cs" Inherits="b2c2casusb2d22.CRUD_classrooms" %>
+
 <asp:Content ID="ClassCrudContent" ContentPlaceHolderID="MainWindow" runat="server">
     <div id="ClassGrid">
         <asp:GridView ID="GVclassroom" runat="server" AutoGenerateColumns="False" DataKeyNames="lokaalId" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GVclassroom_SelectedIndexChanged">
@@ -10,7 +11,7 @@
             </Columns>
         </asp:GridView>
     </div>
-    <div id="ClassDetails" Class="viewSplit">
+    <div id="ClassDetails" class="viewSplit">
         <asp:DetailsView ID="DVclassrooms" runat="server" AutoGenerateRows="False" DataKeyNames="lokaalId" DataSourceID="SqlDataSource2" Height="50px" Width="125px" Visible="False">
             <Fields>
                 <asp:BoundField DataField="lokaalId" HeaderText="lokaalId" InsertVisible="False" ReadOnly="True" SortExpression="lokaalId" />

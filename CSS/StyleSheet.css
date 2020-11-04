@@ -112,14 +112,7 @@
 
 .viewSplit {
     margin-top: 15px;
-    position:center;
-}
-
-.divAlign {
-    text-align: left;
-    font-weight: bold;
-    margin-bottom: 10px;
-    padding-left: 75px;
+    position: center;
 }
 
 .explDiv {
@@ -143,8 +136,8 @@
     margin-bottom: 25px;
     padding-bottom: 20px;
     padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 .btmDiv {
@@ -188,7 +181,7 @@
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-evenly;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .widthFix {
@@ -203,13 +196,26 @@
     text-align: center;
     font-weight: bold;
     margin-top: 10px;
+    text-shadow: 1px 1px #000;
+    color: #de1212;
 }
 
 .imgSizing {
-    height: 100px;
-    border: 3px solid #de1212;
+    height: 350px;
 }
 
+.textBox {
+    height: 300px;
+    width: 650px;
+}
+
+.pageHead {
+    text-align: left;
+    font-family: Verdana;
+    font-weight: bold;
+    text-shadow: 1px 1px #000;
+    color: #de1212;
+}
 
 table {
     background: rgba(0, 0, 0, 0.25);

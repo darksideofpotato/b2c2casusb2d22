@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="StudentCrud" Language="C#" MasterPageFile="~/Masterpage.Master" AutoEventWireup="true" CodeBehind="CRUD students.aspx.cs" Inherits="b2c2casusb2d22.CRUD_students" %>
+
 <asp:Content ID="StudCrudContent" ContentPlaceHolderID="MainWindow" runat="server">
     <div class="filtBar1" id="StudFilt">
         <asp:Label ID="ExplLbl1" runat="server" Text="Sort by courses"></asp:Label>
@@ -34,7 +35,7 @@
                 <asp:BoundField DataField="expertiseNiveau" HeaderText="expertiseNiveau" SortExpression="expertiseNiveau" />
                 <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowInsertButton="True" />
             </Fields>
-        </asp:DetailsView>       
+        </asp:DetailsView>
 
         <asp:DetailsView ID="dvIntStudent" runat="server" AllowPaging="True" AutoGenerateRows="False" DataSourceID="SqlDataSource3" Height="50px" Width="125px" Visible="false">
             <Fields>
@@ -42,7 +43,7 @@
                 <asp:CommandField ShowInsertButton="True" />
             </Fields>
         </asp:DetailsView>
-        
+
         <asp:DetailsView ID="dvSocialStudent" runat="server" AllowPaging="True" AutoGenerateRows="False" DataKeyNames="studentId,socialId" DataSourceID="SqlDataSource4" Height="50px" Width="125px" Visible="false">
             <Fields>
                 <asp:TemplateField HeaderText="studentId" SortExpression="studentId">
@@ -71,7 +72,7 @@
                 <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowInsertButton="True" />
             </Fields>
         </asp:DetailsView>
-      
+
         <asp:DetailsView ID="dvVakStudent" runat="server" AllowPaging="True" AutoGenerateRows="False" DataKeyNames="studentId,vakId" DataSourceID="SqlDataSource5" Height="50px" Width="125px" Visible="false">
             <Fields>
                 <asp:TemplateField HeaderText="studentId" SortExpression="studentId">
@@ -121,7 +122,7 @@
         </asp:DetailsView>
 
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString %>" SelectCommand="SELECT studentId, studentNaam, studentNummer, klasNaam FROM Studenten, Klassen WHERE Klassen.klasId = Studenten.klasId"></asp:SqlDataSource>
-        
+
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString %>" DeleteCommand="DELETE FROM [StudentExpertise] WHERE [studentId] = @studentId AND [expertiseId] = @expertiseId" InsertCommand="INSERT INTO [StudentExpertise] ([studentId], [expertiseId], [expertiseNiveau]) VALUES (@studentId, @expertiseId, @expertiseNiveau)" SelectCommand="SELECT studentNaam, expertiseNaam, expertiseNiveau FROM StudentExpertise, Studenten, Expertises WHERE Studenten.studentId = @studentId AND Studenten.studentId = StudentExpertise.studentId AND StudentExpertise.expertiseId = Expertises.expertiseId" UpdateCommand="UPDATE [StudentExpertise] SET [expertiseNiveau] = @expertiseNiveau WHERE [studentId] = @studentId AND [expertiseId] = @expertiseId">
             <DeleteParameters>
                 <asp:Parameter Name="studentId" Type="Int32" />

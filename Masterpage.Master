@@ -21,8 +21,8 @@
 
         </div>
         <div class="contDiv">
-        <asp:ContentPlaceHolder ID="MainWindow" runat="server">
-        </asp:ContentPlaceHolder>
+            <asp:ContentPlaceHolder ID="MainWindow" runat="server">
+            </asp:ContentPlaceHolder>
         </div>
         <div class="btmDiv">
             <p>This was a school assignment made using Visual Studio ASP.NET in Web Forms</p>
