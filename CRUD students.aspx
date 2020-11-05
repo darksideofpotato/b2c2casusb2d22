@@ -37,10 +37,31 @@
             </Fields>
         </asp:DetailsView>
 
-        <asp:DetailsView ID="dvIntStudent" runat="server" AllowPaging="True" AutoGenerateRows="False" DataSourceID="SqlDataSource3" Height="50px" Width="125px" Visible="false">
+        <asp:DetailsView ID="dvIntStudent" runat="server" AllowPaging="True" AutoGenerateRows="False" DataSourceID="SqlDataSource3" Height="50px" Width="125px" Visible="False" DataKeyNames="studentId,interesseId">
             <Fields>
-                <asp:BoundField DataField="interesseNaam" HeaderText="interesseNaam" SortExpression="interesseNaam" />
-                <asp:CommandField ShowInsertButton="True" />
+                <asp:TemplateField HeaderText="studentId" SortExpression="studentId">
+                    <EditItemTemplate>
+                        <asp:DropDownList ID="dllStudenten" runat="server" DataSourceID="SqlDataSourceStu" DataTextField="studentNaam" DataValueField="studentId" SelectedValue='<%# Bind("studentId") %>'></asp:DropDownList>
+                    </EditItemTemplate>
+                    <InsertItemTemplate>
+                        <asp:DropDownList ID="dllStudenten" runat="server" DataSourceID="SqlDataSourceStu" DataTextField="studentNaam" DataValueField="studentId" SelectedValue='<%# Bind("studentId") %>'></asp:DropDownList>
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label2" runat="server" Text='<%# Eval("studentId") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="interesseId" SortExpression="interesseId">
+                    <EditItemTemplate>
+                        <asp:DropDownList ID="dllInteresses" runat="server" DataSourceID="SqlDataSourceInt" DataTextField="interesseNaam" DataValueField="interesseId" SelectedValue='<%# Bind("interesseId") %>'></asp:DropDownList>
+                    </EditItemTemplate>
+                    <InsertItemTemplate>
+                        <asp:DropDownList ID="dllInteresses" runat="server" DataSourceID="SqlDataSourceInt" DataTextField="interesseNaam" DataValueField="interesseId" SelectedValue='<%# Bind("interesseId") %>'></asp:DropDownList>
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label2" runat="server" Text='<%# Eval("interesseId") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:CommandField ShowDeleteButton="True" ShowInsertButton="True" />
             </Fields>
         </asp:DetailsView>
 
@@ -143,7 +164,7 @@
             </UpdateParameters>
         </asp:SqlDataSource>
 
-        <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString %>" DeleteCommand="DELETE FROM [StudentInteresse] WHERE [studentId] = @studentId AND [interesseId] = @interesseId" InsertCommand="INSERT INTO [StudentInteresse] ([studentId], [interesseId]) VALUES (@studentId, @interesseId)" SelectCommand="SELECT interesseNaam FROM Interesses, Studenten, StudentInteresse WHERE Studenten.studentId = @studentId AND Studenten.studentId = StudentInteresse.studentId ">
+        <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:AfstandslerenDBConnectionString %>" DeleteCommand="DELETE FROM [StudentInteresse] WHERE [studentId] = @studentId AND [interesseId] = @interesseId" InsertCommand="INSERT INTO [StudentInteresse] ([studentId], [interesseId]) VALUES (@studentId, @interesseId)" SelectCommand="SELECT * FROM [StudentInteresse] WHERE ([studentId] = @studentId)">
             <DeleteParameters>
                 <asp:Parameter Name="studentId" Type="Int32" />
                 <asp:Parameter Name="interesseId" Type="Int32" />
