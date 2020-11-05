@@ -15,7 +15,7 @@ namespace b2c2casusb2d22.Classes
         // Het connecten met de database via de connectiestring. Even aanpassen naar je eigen connectiestring dus ;)
         public SqlConnection databaseConnect()
         {
-            string connectionString = @"Data Source=LAPTOP-RPOP6DH9;Initial Catalog=AfstandslerenDB;Integrated Security=True";
+            string connectionString = @"Data Source=JUDITH-PC;Initial Catalog=AfstandslerenDB;Integrated Security=True";
 
             con = new SqlConnection(connectionString);
 
@@ -191,7 +191,7 @@ namespace b2c2casusb2d22.Classes
             return "This student is not assigned to a class";
         }
 
-
+        // De functie die het filteren van studenten opvangt. Op basis van een meegegeven string weet hij op welke van de 2 hij moet selecteren
         public DataTable fillStudentOnChange(string whatToChange, int Id)
         {
             SqlConnection con = databaseConnect();

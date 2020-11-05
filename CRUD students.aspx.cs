@@ -11,12 +11,14 @@ namespace b2c2casusb2d22
 {
     public partial class CRUD_students : System.Web.UI.Page
     {
+        // Een object van de class dal, zodat de database aangesproken kan worden
         Dal dal = new Dal();
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
+        // Zorgt ervoor dat alleen het gekozen element zichtbaar is, en de rest ge-hide wordt.
         protected void gvStudenten_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (dllChoice.SelectedValue == "1")
@@ -75,6 +77,7 @@ namespace b2c2casusb2d22
             }
         }
 
+        //Filtert de studenten op basis van een gekozen vak
         protected void dropDownSort_SelectedIndexChanged(object sender, EventArgs e)
         {
             int courseId = Convert.ToInt32(dropDownSort.SelectedValue);
@@ -85,6 +88,7 @@ namespace b2c2casusb2d22
             gvStudenten.DataBind();
         }
 
+        //Filtert de studenten op basis van een gekozen klas
         protected void dropDownSort2_SelectedIndexChanged(object sender, EventArgs e)
         {
             int classId = Convert.ToInt32(dropDownSort2.SelectedValue);
@@ -94,7 +98,7 @@ namespace b2c2casusb2d22
             gvStudenten.DataSource = dt;
             gvStudenten.DataBind();
         }
-
+        //Zorgt ervoor dat alle elementen ge-hide worden
         protected void dllChoice_SelectedIndexChanged(object sender, EventArgs e)
         {
             dvExpStudent.Visible = false;

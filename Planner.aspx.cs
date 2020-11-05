@@ -12,6 +12,8 @@ using System.Web.UI.WebControls;
 namespace b2c2casusb2d22
 {
     public partial class Planner : System.Web.UI.Page
+
+        // Sommige functies hebben een try/catch erachter zitten, zodat het programma niet meteen crasht als er verkeerd/te snel op een knop wordt gedrukt
     {
         // Maken van een object van de class dal, zodat de databaseconnectie en methodes gebruikt kunnen worden
         Dal dal = new Dal();
@@ -99,6 +101,7 @@ namespace b2c2casusb2d22
             }
         }
 
+        // Wanneer een entry is geselecteerd een aangepast, kan deze geupdate worden in de database met deze knop
         protected void buttonUpdateAppointment_Click(object sender, EventArgs e)
         {
             lblError.Text = "";
