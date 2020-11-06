@@ -255,6 +255,9 @@
                             </tr>
                         </SelectedItemTemplate>
                     </asp:ListView>
+                    <br />
+                    <br />
+                    <asp:Button ID="btnAddToAppointment" runat="server" Text="TBA - add student to appointment" Enabled="False" Height="63px" Width="342px" Font-Size="Large" />
                 </div>
             </div>
         </div>

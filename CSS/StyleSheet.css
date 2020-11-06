@@ -239,5 +239,9 @@ td {
 }
 
 #StudentCrBtn{
-    width: 230px!important;
+    width: 230px !important;
 }
+
+#ClassCrudBtn{
+    width: 170px !important;
+} 
