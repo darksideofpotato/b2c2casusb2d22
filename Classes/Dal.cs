@@ -79,11 +79,6 @@ namespace b2c2casusb2d22.Classes
             cmd.Parameters.AddWithValue("@tijdstip", newPlanner.getTijdstip());
             cmd.Parameters.AddWithValue("@studentId", newPlanner.getStudent());
 
-            System.Diagnostics.Debug.WriteLine(newPlanner.getLokaal());
-            System.Diagnostics.Debug.WriteLine(newPlanner.getDate());
-            System.Diagnostics.Debug.WriteLine(newPlanner.getTijdstip());
-            System.Diagnostics.Debug.WriteLine(newPlanner.getStudent());
-
             cmd.ExecuteNonQuery();
             con.Close();
         }
@@ -128,7 +123,6 @@ namespace b2c2casusb2d22.Classes
             cmd.Parameters.AddWithValue("@tijdstip", appointment.getTijdstip());
             cmd.Parameters.AddWithValue("@studentId", appointment.getStudent());
 
-            System.Diagnostics.Debug.WriteLine(appointment.getLokaal());
 
             cmd.ExecuteNonQuery();
             con.Close();
@@ -163,7 +157,6 @@ namespace b2c2casusb2d22.Classes
                 foreach (DataRow row in dt.Rows)
                 {
                     objectList.Add(row[col.ColumnName].ToString());
-                    System.Diagnostics.Debug.WriteLine(row[col.ColumnName].ToString());
                 }
             }             
             Student pickedStudent = new Student(Convert.ToInt32(Convert.ToInt32(objectList[0])), objectList[1], objectList[2], Convert.ToInt32(objectList[3]));
