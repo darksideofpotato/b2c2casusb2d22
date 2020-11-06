@@ -20,6 +20,7 @@ namespace b2c2casusb2d22
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
             // Het vullen van de datagridview met informatie. Conflicte met de selectedindexchanged
             //als ik het via databound deed dus dan maar handmatig
 
@@ -49,14 +50,26 @@ namespace b2c2casusb2d22
 
             try
             {
-                int lokaalId = Convert.ToInt32(dropDownSelectClassroom.SelectedValue);
-                int studentId = Convert.ToInt32(dropDownStudents.SelectedValue);
-                string date = calendarPlanner.SelectedDate.ToString("dd/MM/yyyy");
-                string time = dropDownTimes.SelectedValue.ToString();
+                // Een controle of de dag vóór de dag vandaag wordt ingesteld, dit mag namelijk niet.
+                DateTime todaysDate = DateTime.Today;
+                DateTime date = calendarPlanner.SelectedDate;
 
-                LokaalPlanner newPlanning = new LokaalPlanner(0, lokaalId, date, time, studentId);
+                if (date < todaysDate)
+                {
+                    lblError.Text = "You picked a date before today. Please pick a data in the future.";
+                }
+                else
+                {
+                    int lokaalId = Convert.ToInt32(dropDownSelectClassroom.SelectedValue);
+                    int studentId = Convert.ToInt32(dropDownStudents.SelectedValue);
 
-                dal.addPlanning(newPlanning);
+                    string newDate = calendarPlanner.SelectedDate.ToString("dd/MM/yyyy");
+                    string time = dropDownTimes.SelectedValue.ToString();
+
+                    LokaalPlanner newPlanning = new LokaalPlanner(0, lokaalId, newDate, time, studentId);
+
+                    dal.addPlanning(newPlanning);
+                }      
             }
             catch (Exception error)
             {
@@ -107,18 +120,29 @@ namespace b2c2casusb2d22
             lblError.Text = "";
             try
             {
-                LokaalPlanner currentValues = dal.getAppointment(Convert.ToInt32(labelId.Text));
+                // Een controle of de dag vóór de dag vandaag wordt ingesteld, dit mag namelijk niet.
+                DateTime todaysDate = DateTime.Today;
+                DateTime date = calendarPlanner.SelectedDate;
 
-                currentValues.setStudent(Convert.ToInt32(dropDownStudents.SelectedIndex) + 1);
-                currentValues.setDate(calendarPlanner.SelectedDate.ToString());
-                currentValues.setTime(dropDownTimes.SelectedValue.ToString());
-                currentValues.setLokaal(Convert.ToInt32(dropDownSelectClassroom.SelectedIndex) + 1);
+                if (date < todaysDate)
+                {
+                    lblError.Text = "You picked a date before today. Please pick a data in the future.";
+                }
+                else
+                {
+                    LokaalPlanner currentValues = dal.getAppointment(Convert.ToInt32(labelId.Text));
+                    currentValues.setStudent(Convert.ToInt32(dropDownStudents.SelectedIndex) + 1);
+                    currentValues.setDate(calendarPlanner.SelectedDate.ToString("dd/MM/yyyy"));
+                    currentValues.setTime(dropDownTimes.SelectedValue.ToString());
+                    currentValues.setLokaal(Convert.ToInt32(dropDownSelectClassroom.SelectedIndex) + 1);
 
 
 
-                dal.updateAppointment(currentValues);
+                    dal.updateAppointment(currentValues);
+
+                }
             }
-            catch(Exception error)
+            catch (Exception error)
             {
                 lblError.Text = "Something went wrong, please check your inserted values";
             };

@@ -2,10 +2,6 @@
 
 <asp:Content ID="StudCrudContent" ContentPlaceHolderID="MainWindow" runat="server">
     <div class="filtBar1" id="StudFilt">
-        <asp:Label ID="ExplLbl1" runat="server" Text="Sort by courses"></asp:Label>
-        <asp:DropDownList CssClass="filtFld" ID="dropDownSort" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource7" DataTextField="vakNaam" DataValueField="vakId" OnSelectedIndexChanged="dropDownSort_SelectedIndexChanged"></asp:DropDownList>
-        <asp:Label ID="ExplLbl2" runat="server" Text="Sort by class"></asp:Label>
-        <asp:DropDownList CssClass="filtFld" ID="dropDownSort2" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource8" DataTextField="klasNaam" DataValueField="klasId" OnSelectedIndexChanged="dropDownSort2_SelectedIndexChanged"></asp:DropDownList>
         <asp:Label ID="ExplLbl3" runat="server" Text="Edit:"></asp:Label>
         <asp:DropDownList CssClass="filtFld" ID="dllChoice" runat="server" AutoPostBack="True" OnSelectedIndexChanged="dllChoice_SelectedIndexChanged">
             <asp:ListItem Value="1">Expertises</asp:ListItem>
@@ -16,14 +12,13 @@
         </asp:DropDownList>
     </div>
     <div id="StudSelectGrid">
-        <asp:GridView ID="gvStudenten" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="studentId" OnSelectedIndexChanged="gvStudenten_SelectedIndexChanged" OnRowCommand="gvStudenten_RowCommand">
+        <asp:GridView ID="gvStudenten" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="studentId" OnSelectedIndexChanged="gvStudenten_SelectedIndexChanged">
             <Columns>
                 <asp:BoundField DataField="studentId" HeaderText="studentId" SortExpression="studentId" InsertVisible="False" ReadOnly="True" />
                 <asp:BoundField DataField="studentNaam" HeaderText="studentNaam" SortExpression="studentNaam" />
                 <asp:BoundField DataField="studentNummer" HeaderText="studentNummer" SortExpression="studentNummer" />
                 <asp:BoundField DataField="klasNaam" HeaderText="Klas" SortExpression="Klas" />
                 <asp:ButtonField ControlStyle-CssClass="selBtn" ButtonType="Button" CommandName="Select" Text="Select" />
-                <asp:ButtonField ControlStyle-CssClass="selBtn" ButtonType="Button" CommandName="checkProfile" HeaderText="Profile" ShowHeader="True" Text="Profile"></asp:ButtonField>
             </Columns>
         </asp:GridView>
     </div>

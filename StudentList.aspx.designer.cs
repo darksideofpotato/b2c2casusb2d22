@@ -15,6 +15,15 @@ namespace b2c2casusb2d22
     {
 
         /// <summary>
+        /// ExplLbl1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ExplLbl1;
+
+        /// <summary>
         /// ddlKlas control.
         /// </summary>
         /// <remarks>
@@ -22,6 +31,15 @@ namespace b2c2casusb2d22
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlKlas;
+
+        /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
         /// ddlExpertise control.
@@ -33,6 +51,15 @@ namespace b2c2casusb2d22
         protected global::System.Web.UI.WebControls.DropDownList ddlExpertise;
 
         /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+
+        /// <summary>
         /// ddlInteresse control.
         /// </summary>
         /// <remarks>
@@ -40,6 +67,15 @@ namespace b2c2casusb2d22
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlInteresse;
+
+        /// <summary>
+        /// Label3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
         /// ddlVak control.
@@ -51,13 +87,13 @@ namespace b2c2casusb2d22
         protected global::System.Web.UI.WebControls.DropDownList ddlVak;
 
         /// <summary>
-        /// GridView1 control.
+        /// gridViewStudenten control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView gridViewStudenten;
 
         /// <summary>
         /// SqlDataSource1 control.

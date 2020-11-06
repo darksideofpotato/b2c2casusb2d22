@@ -15,42 +15,6 @@ namespace b2c2casusb2d22
     {
 
         /// <summary>
-        /// ExplLbl1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ExplLbl1;
-
-        /// <summary>
-        /// dropDownSort control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropDownSort;
-
-        /// <summary>
-        /// ExplLbl2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ExplLbl2;
-
-        /// <summary>
-        /// dropDownSort2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropDownSort2;
-
-        /// <summary>
         /// ExplLbl3 control.
         /// </summary>
         /// <remarks>

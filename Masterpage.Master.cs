@@ -33,5 +33,10 @@ namespace b2c2casusb2d22
         {
             Server.Transfer("Planner.aspx");
         }
+
+        protected void StudentFilterBtn_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("StudentList.aspx");
+        }
     }
 }

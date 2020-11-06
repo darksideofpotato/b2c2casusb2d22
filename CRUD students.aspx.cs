@@ -11,8 +11,6 @@ namespace b2c2casusb2d22
 {
     public partial class CRUD_students : System.Web.UI.Page
     {
-        // Een object van de class dal, zodat de database aangesproken kan worden
-        Dal dal = new Dal();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -63,41 +61,6 @@ namespace b2c2casusb2d22
             }
         }
 
-        protected void gvStudenten_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            // Wanneer er op de 'profile' knop geklikt wordt, krijgt de gebruiker het profiel van de gekozen gebruiker te zien
-            if (e.CommandName == "checkProfile")
-            {
-                var rowIndex = int.Parse(e.CommandArgument.ToString());
-                var selectedRow = ((GridView)sender).Rows[rowIndex];
-                Student pickedStudent = dal.getStudent(Convert.ToInt32(selectedRow.Cells[0].Text));
-
-                Session["Student"] = pickedStudent;
-                Server.Transfer("Profile.aspx");
-            }
-        }
-
-        //Filtert de studenten op basis van een gekozen vak
-        protected void dropDownSort_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int courseId = Convert.ToInt32(dropDownSort.SelectedValue);
-            DataTable dt = dal.fillStudentOnChange("course", courseId);
-
-            gvStudenten.DataSourceID = ""; 
-            gvStudenten.DataSource = dt;
-            gvStudenten.DataBind();
-        }
-
-        //Filtert de studenten op basis van een gekozen klas
-        protected void dropDownSort2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int classId = Convert.ToInt32(dropDownSort2.SelectedValue);
-            DataTable dt = dal.fillStudentOnChange("class", classId);
-
-            gvStudenten.DataSourceID = "";
-            gvStudenten.DataSource = dt;
-            gvStudenten.DataBind();
-        }
         //Zorgt ervoor dat alle elementen ge-hide worden
         protected void dllChoice_SelectedIndexChanged(object sender, EventArgs e)
         {

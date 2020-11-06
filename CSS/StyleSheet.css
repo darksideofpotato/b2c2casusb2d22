@@ -237,3 +237,7 @@ td {
     color: #ffffff;
     padding: 2px 5px;
 }
+
+#StudentCrBtn{
+    width: 230px!important;
+}
