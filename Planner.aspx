@@ -8,6 +8,7 @@
                 <asp:DropDownList CssClass="filtFld" ID="dropDownLokaal" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="lokaalNaam" DataValueField="lokaalId" OnSelectedIndexChanged="dropDownLokaal_SelectedIndexChanged" AppendDataBoundItems="True">
                     <asp:ListItem Value="0">All</asp:ListItem>
                 </asp:DropDownList>
+                <asp:Label ID="ExplLbl5" runat="server" Text="Current planning:"></asp:Label>
             </div>
             <asp:GridView ID="gridViewPlanner" runat="server" AutoGenerateColumns="False" OnRowCommand="gridViewPlanner_RowCommand">
                 <Columns>
@@ -25,7 +26,7 @@
             <asp:Label CssClass="errLbl" ID="lblError" runat="server" Text=""></asp:Label>
         </div>
         <div id="calDiv" class="filtBar2">
-            <asp:Label ID="ExplLbl6" runat="server" Text="Date:"></asp:Label>
+            <asp:Label ID="ExplLbl6" runat="server" Text="Pick a date:"></asp:Label>
             <asp:Calendar ID="calendarPlanner" runat="server"></asp:Calendar>
             <div class="flex-list" id="flexPlan">
                 <asp:Label CssClass="widthFix" ID="ExplLbl7" runat="server" Text="Time:"></asp:Label>
