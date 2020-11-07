@@ -15,7 +15,7 @@ namespace b2c2casusb2d22.Classes
         // Het connecten met de database via de connectiestring. Even aanpassen naar je eigen connectiestring dus ;)
         public SqlConnection databaseConnect()
         {
-            string connectionString = @"Data Source=DESKTOP-QK10AQ0;Initial Catalog=AfstandslerenDB;Integrated Security=True"; // <----- Deze aanpassen naar eigen connectionstring
+            string connectionString = @"Data Source=JUDITH-PC;Initial Catalog=AfstandslerenDB;Integrated Security=True"; // <----- Deze aanpassen naar eigen connectionstring
 
             con = new SqlConnection(connectionString);
 
@@ -184,72 +184,6 @@ namespace b2c2casusb2d22.Classes
             return "This student is not assigned to a class";
         }
 
-        // De functie die het filteren van studenten opvangt. Op basis van een meegegeven string weet hij op welke hij moet selecteren
-        public DataTable fillStudentOnChange(string whatToChange, int Id)
-        {
-            SqlConnection con = databaseConnect();
-            DataTable dt = new DataTable();
-            if (whatToChange == "class") {
-                SqlCommand cmd = new SqlCommand("SELECT Studenten.studentId, Studenten.studentNaam, Studenten.studentNummer, Klassen.klasNaam, Vakken.vakNaam, Expertises.expertiseNaam, " +
-                    "StudentExpertise.expertiseNiveau, Interesses.interesseNaam, Socials.socialNaam, StudentSocial.socialLink FROM Interesses INNER JOIN StudentInteresse ON " +
-                    "Interesses.interesseId = StudentInteresse.interesseId INNER JOIN Expertises INNER JOIN Studenten INNER JOIN Klassen ON Studenten.klasId = Klassen.klasId " +
-                    "INNER JOIN StudentExpertise ON Studenten.studentId = StudentExpertise.studentId ON Expertises.expertiseId = StudentExpertise.expertiseId ON " +
-                    "StudentInteresse.studentId = Studenten.studentId INNER JOIN StudentSocial ON Studenten.studentId = StudentSocial.studentId " +
-                    "INNER JOIN Socials ON StudentSocial.socialId = Socials.socialId INNER JOIN StudentVak ON Studenten.studentId = StudentVak.studentId " +
-                    "INNER JOIN Vakken ON StudentVak.vakId = Vakken.vakId WHERE Studenten.klasId = @ID", con);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.SelectCommand.Parameters.AddWithValue("@ID", Id);
-                da.Fill(dt);
-
-                return dt;
-            }
-            else if (whatToChange == "course")
-            {
-                SqlCommand cmd = new SqlCommand("SELECT Studenten.studentId, Studenten.studentNaam, Studenten.studentNummer, Klassen.klasNaam, Vakken.vakNaam, Expertises.expertiseNaam, " +
-                    "StudentExpertise.expertiseNiveau, Interesses.interesseNaam, Socials.socialNaam, StudentSocial.socialLink FROM Interesses INNER JOIN StudentInteresse ON " +
-                    "Interesses.interesseId = StudentInteresse.interesseId INNER JOIN Expertises INNER JOIN Studenten INNER JOIN Klassen ON Studenten.klasId = Klassen.klasId " +
-                    "INNER JOIN StudentExpertise ON Studenten.studentId = StudentExpertise.studentId ON Expertises.expertiseId = StudentExpertise.expertiseId ON " +
-                    "StudentInteresse.studentId = Studenten.studentId INNER JOIN StudentSocial ON Studenten.studentId = StudentSocial.studentId " +
-                    "INNER JOIN Socials ON StudentSocial.socialId = Socials.socialId INNER JOIN StudentVak ON Studenten.studentId = StudentVak.studentId " +
-                    "INNER JOIN Vakken ON StudentVak.vakId = Vakken.vakId WHERE StudentVak.vakId = @ID", con);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.SelectCommand.Parameters.AddWithValue("@ID", Id);
-                da.Fill(dt);
-
-                return dt;
-            }
-            else if(whatToChange == "expertise")
-            {
-                SqlCommand cmd = new SqlCommand("SELECT Studenten.studentId, Studenten.studentNaam, Studenten.studentNummer, Klassen.klasNaam, Vakken.vakNaam, Expertises.expertiseNaam, " +
-                    "StudentExpertise.expertiseNiveau, Interesses.interesseNaam, Socials.socialNaam, StudentSocial.socialLink FROM Interesses INNER JOIN StudentInteresse ON " +
-                    "Interesses.interesseId = StudentInteresse.interesseId INNER JOIN Expertises INNER JOIN Studenten INNER JOIN Klassen ON Studenten.klasId = Klassen.klasId " +
-                    "INNER JOIN StudentExpertise ON Studenten.studentId = StudentExpertise.studentId ON Expertises.expertiseId = StudentExpertise.expertiseId ON " +
-                    "StudentInteresse.studentId = Studenten.studentId INNER JOIN StudentSocial ON Studenten.studentId = StudentSocial.studentId " +
-                    "INNER JOIN Socials ON StudentSocial.socialId = Socials.socialId INNER JOIN StudentVak ON Studenten.studentId = StudentVak.studentId " +
-                    "INNER JOIN Vakken ON StudentVak.vakId = Vakken.vakId WHERE StudentVak.vakId = @ID", con);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.SelectCommand.Parameters.AddWithValue("@ID", Id);
-                da.Fill(dt);
-
-                return dt;
-            }
-
-            else if (whatToChange == "interests")
-            {
-                SqlCommand cmd = new SqlCommand("SELECT Studenten.studentId, Studenten.studentNaam, Studenten.studentNummer, Klassen.klasNaam, Vakken.vakNaam, Expertises.expertiseNaam, " +
-                    "StudentExpertise.expertiseNiveau, Interesses.interesseNaam, Socials.socialNaam, StudentSocial.socialLink FROM Interesses INNER JOIN StudentInteresse ON " +
-                    "Interesses.interesseId = StudentInteresse.interesseId INNER JOIN Expertises INNER JOIN Studenten INNER JOIN Klassen ON Studenten.klasId = Klassen.klasId " +
-                    "INNER JOIN StudentExpertise ON Studenten.studentId = StudentExpertise.studentId ON Expertises.expertiseId = StudentExpertise.expertiseId ON " +
-                    "StudentInteresse.studentId = Studenten.studentId INNER JOIN StudentSocial ON Studenten.studentId = StudentSocial.studentId " +
-                    "INNER JOIN Socials ON StudentSocial.socialId = Socials.socialId INNER JOIN StudentVak ON Studenten.studentId = StudentVak.studentId " +
-                    "INNER JOIN Vakken ON StudentVak.vakId = Vakken.vakId WHERE StudentInteresse.interesseId = @ID", con);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.SelectCommand.Parameters.AddWithValue("@ID", Id);
-                da.Fill(dt);
-
-                return dt;
-            }
-            return dt;
-        }
+        
     }
 }

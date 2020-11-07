@@ -42,11 +42,6 @@ namespace b2c2casusb2d22
         protected void ddlKlas_SelectedIndexChanged(object sender, EventArgs e)
         {
             int classId = Convert.ToInt32(ddlKlas.SelectedValue);
-            //DataTable dt = dal.fillStudentOnChange("class", courseId);
-
-            //gridViewStudenten.DataSourceID = "";
-            //gridViewStudenten.DataSource = dt;
-            //gridViewStudenten.DataBind();
             SqlDataSource1.SelectCommand = "SELECT * FROM Studenten WHERE klasId = " + classId;
             SqlDataSource1.DataBind();
             gridViewStudenten.DataBind();
@@ -56,11 +51,6 @@ namespace b2c2casusb2d22
         protected void ddlExpertise_SelectedIndexChanged(object sender, EventArgs e)
         {
             int classId = Convert.ToInt32(ddlExpertise.SelectedValue);
-            //DataTable dt = dal.fillStudentOnChange("expertise", classId);
-
-            //gridViewStudenten.DataSourceID = "";
-            //gridViewStudenten.DataSource = dt;
-            //gridViewStudenten.DataBind();
             SqlDataSource1.SelectCommand = "SELECT Studenten.* FROM Studenten INNER JOIN StudentExpertise ON Studenten.studentId = StudentExpertise.studentId WHERE StudentExpertise.expertiseId =" + classId;
             SqlDataSource1.DataBind();
             gridViewStudenten.DataBind();
@@ -69,11 +59,6 @@ namespace b2c2casusb2d22
         protected void ddlInteresse_SelectedIndexChanged(object sender, EventArgs e)
         {
             int classId = Convert.ToInt32(ddlExpertise.SelectedValue);
-            //DataTable dt = dal.fillStudentOnChange("interests", classId);
-
-            //gridViewStudenten.DataSourceID = "";
-            //gridViewStudenten.DataSource = dt;
-            //gridViewStudenten.DataBind();
             SqlDataSource1.SelectCommand = "SELECT Studenten.* FROM Studenten INNER JOIN StudentInteresse ON Studenten.studentId = StudentInteresse.studentId WHERE StudentInteresse.interesseId ="+classId;
             SqlDataSource1.DataBind();
             gridViewStudenten.DataBind();
@@ -82,11 +67,6 @@ namespace b2c2casusb2d22
         protected void ddlVak_SelectedIndexChanged(object sender, EventArgs e)
         {
             int classId = Convert.ToInt32(ddlExpertise.SelectedValue);
-            //DataTable dt = dal.fillStudentOnChange("course", classId);
-
-            //gridViewStudenten.DataSourceID = "";
-            //gridViewStudenten.DataSource = dt;
-            //gridViewStudenten.DataBind();
             SqlDataSource1.SelectCommand = "SELECT Studenten.* FROM Studenten INNER JOIN StudentVak ON Studenten.studentId = StudentVak.studentId WHERE StudentVak.vakId =" + classId;
             SqlDataSource1.DataBind();
             gridViewStudenten.DataBind();
