@@ -9,14 +9,14 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="title">
-            <h1>WeConnect</h1>
+        <div class="logo">
+            <img class="logoSizing" src="Images/WeConnectlogo.png" />
         </div>
         <div class="navbar">
 
             <asp:Button CssClass="navbtn" ID="HomeBtn" runat="server" OnClick="HomeBtn_Click" Text="Home" />
-            <asp:Button CssClass="navbtn" ID="StudentCrBtn" runat="server" OnClick="StudentCrBtn_Click" Text="Manage Students" />
-            <asp:Button CssClass="navbtn" ID="StudentFilterBtn" runat="server" OnClick="StudentFilterBtn_Click" Text="Students" />
+            <asp:Button CssClass="navbtn" ID="StudentCrBtn" runat="server" OnClick="StudentCrBtn_Click" Text="Manage students" />
+            <asp:Button CssClass="navbtn" ID="StudentFilterBtn" runat="server" OnClick="StudentFilterBtn_Click" Text="Find students" />
             <asp:Button CssClass="navbtn" ID="ClassCrudBtn" runat="server" OnClick="ClassCrudBtn_Click" Text="Classrooms" />
             <asp:Button CssClass="navbtn" ID="PlannerBtn" runat="server" OnClick="PlannerBtn_Click" Text="Planner" />
 
