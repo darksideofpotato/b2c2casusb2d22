@@ -117,7 +117,7 @@
             </Fields>
         </asp:DetailsView>
 
-        <asp:DetailsView ID="dvStudent" runat="server" AutoGenerateRows="False" DataKeyNames="studentId" DataSourceID="SqlDataSource6" Height="50px" Width="125px" Visible="false">
+        <asp:DetailsView ID="dvStudent" runat="server" AutoGenerateRows="False" DataKeyNames="studentId" DataSourceID="SqlDataSource6" Height="50px" Width="125px" Visible="false" OnItemDeleted="dvStudent_ItemDeleted" OnItemInserted="dvStudent_ItemInserted" OnItemUpdated="dvStudent_ItemUpdated">
             <Fields>
                 <asp:BoundField DataField="studentId" HeaderText="studentId" InsertVisible="False" ReadOnly="True" SortExpression="studentId" />
                 <asp:BoundField DataField="studentNaam" HeaderText="studentNaam" SortExpression="studentNaam" />

@@ -70,5 +70,23 @@ namespace b2c2casusb2d22
             dvVakStudent.Visible = false;
             dvStudent.Visible = false;
         }
+
+        protected void dvStudent_ItemDeleted(object sender, DetailsViewDeletedEventArgs e)
+        {
+            gvStudenten.DataBind();
+            gvStudenten.SelectRow(-1);
+        }
+
+        protected void dvStudent_ItemInserted(object sender, DetailsViewInsertedEventArgs e)
+        {
+            gvStudenten.DataBind();
+            gvStudenten.SelectRow(-1);
+        }
+
+        protected void dvStudent_ItemUpdated(object sender, DetailsViewUpdatedEventArgs e)
+        {
+            gvStudenten.DataBind();
+            gvStudenten.SelectRow(-1);
+        }
     }
 }

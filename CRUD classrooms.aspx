@@ -12,7 +12,7 @@
         </asp:GridView>
     </div>
     <div id="ClassDetails" class="viewSplit">
-        <asp:DetailsView ID="DVclassrooms" runat="server" AutoGenerateRows="False" DataKeyNames="lokaalId" DataSourceID="SqlDataSource2" Height="50px" Width="125px" Visible="False">
+        <asp:DetailsView ID="DVclassrooms" runat="server" AutoGenerateRows="False" DataKeyNames="lokaalId" DataSourceID="SqlDataSource2" Height="50px" Width="125px" Visible="False" OnItemDeleted="DVclassrooms_ItemDeleted" OnItemInserted="DVclassrooms_ItemInserted" OnItemUpdated="DVclassrooms_ItemUpdated">
             <Fields>
                 <asp:BoundField DataField="lokaalId" HeaderText="lokaalId" InsertVisible="False" ReadOnly="True" SortExpression="lokaalId" />
                 <asp:BoundField DataField="lokaalNaam" HeaderText="lokaalNaam" SortExpression="lokaalNaam" />

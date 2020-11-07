@@ -14,10 +14,39 @@ namespace b2c2casusb2d22
             
         }
 
+        protected void Page_PreRender(object sender, EventArgs e)
+        {
+            if(GVclassroom.SelectedRow == null)
+            {
+                DVclassrooms.Visible = false;
+            }
+            else
+            {
+                DVclassrooms.Visible = true;
+            }
+        }
+
         protected void GVclassroom_SelectedIndexChanged(object sender, EventArgs e)
         {
             DVclassrooms.Visible = true;
         }
 
+        protected void DVclassrooms_ItemDeleted(object sender, DetailsViewDeletedEventArgs e)
+        {
+            GVclassroom.DataBind();
+            GVclassroom.SelectRow(-1);
+        }
+
+        protected void DVclassrooms_ItemInserted(object sender, DetailsViewInsertedEventArgs e)
+        {
+            GVclassroom.DataBind();
+            GVclassroom.SelectRow(-1);
+        }
+
+        protected void DVclassrooms_ItemUpdated(object sender, DetailsViewUpdatedEventArgs e)
+        {
+            GVclassroom.DataBind();
+            GVclassroom.SelectRow(-1);
+        }
     }
 }
