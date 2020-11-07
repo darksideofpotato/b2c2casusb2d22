@@ -14,7 +14,9 @@ namespace b2c2casusb2d22
         Dal dal = new Dal();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            SqlDataSource1.SelectCommand = "SELECT * FROM Studenten";
+            SqlDataSource1.DataBind();
+            gridViewStudenten.DataBind();
         }
 
         protected void gridViewStudenten_SelectedIndexChanged(object sender, EventArgs e)
@@ -29,7 +31,7 @@ namespace b2c2casusb2d22
             {
                 var rowIndex = int.Parse(e.CommandArgument.ToString());
                 var selectedRow = ((GridView)sender).Rows[rowIndex];
-                Student pickedStudent = dal.getStudent(Convert.ToInt32(selectedRow.Cells[0].Text));
+                Student pickedStudent = dal.getStudent(Convert.ToInt32(selectedRow.Cells[1].Text));
 
                 Session["Student"] = pickedStudent;
                 Server.Transfer("Profile.aspx");
@@ -39,42 +41,54 @@ namespace b2c2casusb2d22
         // de onderstaande dropdown indexchanges handelen het filteren van de studenten
         protected void ddlKlas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int courseId = Convert.ToInt32(ddlKlas.SelectedValue);
-            DataTable dt = dal.fillStudentOnChange("class", courseId);
+            int classId = Convert.ToInt32(ddlKlas.SelectedValue);
+            //DataTable dt = dal.fillStudentOnChange("class", courseId);
 
-            gridViewStudenten.DataSourceID = "";
-            gridViewStudenten.DataSource = dt;
+            //gridViewStudenten.DataSourceID = "";
+            //gridViewStudenten.DataSource = dt;
+            //gridViewStudenten.DataBind();
+            SqlDataSource1.SelectCommand = "SELECT * FROM Studenten WHERE klasId = " + classId;
+            SqlDataSource1.DataBind();
             gridViewStudenten.DataBind();
-            
+
         }
 
         protected void ddlExpertise_SelectedIndexChanged(object sender, EventArgs e)
         {
             int classId = Convert.ToInt32(ddlExpertise.SelectedValue);
-            DataTable dt = dal.fillStudentOnChange("expertise", classId);
+            //DataTable dt = dal.fillStudentOnChange("expertise", classId);
 
-            gridViewStudenten.DataSourceID = "";
-            gridViewStudenten.DataSource = dt;
+            //gridViewStudenten.DataSourceID = "";
+            //gridViewStudenten.DataSource = dt;
+            //gridViewStudenten.DataBind();
+            SqlDataSource1.SelectCommand = "SELECT Studenten.* FROM Studenten INNER JOIN StudentExpertise ON Studenten.studentId = StudentExpertise.studentId WHERE StudentExpertise.expertiseId =" + classId;
+            SqlDataSource1.DataBind();
             gridViewStudenten.DataBind();
         }
 
         protected void ddlInteresse_SelectedIndexChanged(object sender, EventArgs e)
         {
             int classId = Convert.ToInt32(ddlExpertise.SelectedValue);
-            DataTable dt = dal.fillStudentOnChange("interests", classId);
+            //DataTable dt = dal.fillStudentOnChange("interests", classId);
 
-            gridViewStudenten.DataSourceID = "";
-            gridViewStudenten.DataSource = dt;
+            //gridViewStudenten.DataSourceID = "";
+            //gridViewStudenten.DataSource = dt;
+            //gridViewStudenten.DataBind();
+            SqlDataSource1.SelectCommand = "SELECT Studenten.* FROM Studenten INNER JOIN StudentInteresse ON Studenten.studentId = StudentInteresse.studentId WHERE StudentInteresse.interesseId ="+classId;
+            SqlDataSource1.DataBind();
             gridViewStudenten.DataBind();
         }
 
         protected void ddlVak_SelectedIndexChanged(object sender, EventArgs e)
         {
             int classId = Convert.ToInt32(ddlExpertise.SelectedValue);
-            DataTable dt = dal.fillStudentOnChange("course", classId);
+            //DataTable dt = dal.fillStudentOnChange("course", classId);
 
-            gridViewStudenten.DataSourceID = "";
-            gridViewStudenten.DataSource = dt;
+            //gridViewStudenten.DataSourceID = "";
+            //gridViewStudenten.DataSource = dt;
+            //gridViewStudenten.DataBind();
+            SqlDataSource1.SelectCommand = "SELECT Studenten.* FROM Studenten INNER JOIN StudentVak ON Studenten.studentId = StudentVak.studentId WHERE StudentVak.vakId =" + classId;
+            SqlDataSource1.DataBind();
             gridViewStudenten.DataBind();
         }
     }
