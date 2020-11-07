@@ -71,5 +71,12 @@ namespace b2c2casusb2d22
             SqlDataSource1.DataBind();
             gridViewStudenten.DataBind();
         }
+
+        protected void ShowAll_Click(object sender, EventArgs e)
+        {
+            SqlDataSource1.SelectCommand = "SELECT * FROM Studenten";
+            SqlDataSource1.DataBind();
+            gridViewStudenten.DataBind();
+        }
     }
 }

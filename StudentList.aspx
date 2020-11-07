@@ -3,6 +3,7 @@
     <div>
         
         <div class="filtBar1">
+            <asp:Button CssClass="filtFld" runat="server" Text="Show all" ID="ShowAllStudents" OnClick="ShowAll_Click" />
              <asp:Label ID="ExplLbl1" runat="server" Text="Filter on class"></asp:Label>
             <asp:DropDownList CssClass="filtFld" ID="ddlKlas" runat="server" DataSourceID="SqlDataSourceKlas" DataTextField="klasNaam" DataValueField="klasId" AutoPostBack="True" OnSelectedIndexChanged="ddlKlas_SelectedIndexChanged"></asp:DropDownList>        
              <asp:Label ID="Label1" runat="server" Text="Filter on expertise"></asp:Label>
