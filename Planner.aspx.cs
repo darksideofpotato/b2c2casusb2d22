@@ -126,7 +126,7 @@ namespace b2c2casusb2d22
 
                 if (date < todaysDate)
                 {
-                    lblError.Text = "You picked a date before today. Please pick a data in the future.";
+                    lblError.Text = "You picked a date before today. Please pick a date in the future.";
                 }
                 else
                 {
